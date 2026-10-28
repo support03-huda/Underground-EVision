@@ -40,7 +40,7 @@ scheduler_events = {
 # required_apps = []
 
 app_logo_url = "/assets/underground/images/underground-logo.svg"
-app_home = "/app/underground"
+app_home = "/app/ug-dashboard"
 app_color = "#1D4E89"
 
 # Each item in the list will be shown as an app in the apps page

@@ -186,7 +186,7 @@ def setup_app_icon():
 	values = {
 		"icon_type": "App",
 		"link_type": "External",
-		"link": "/app/underground",
+		"link": "/app/ug-dashboard",
 		"app": "underground",
 		"logo_url": "/assets/underground/images/underground-logo.svg",
 		"bg_color": "blue",
