@@ -1,0 +1,325 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "autoname": "naming_series:",
+ "creation": "2026-10-29 00:00:00.000000",
+ "description": "Progress entered daily by the field team; one per site per day.",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "ug_site",
+  "node_id",
+  "node_name",
+  "pm_user",
+  "am_user",
+  "cb1",
+  "progress_date",
+  "vendor",
+  "show_ibd",
+  "sec_today",
+  "td_km",
+  "section_chainage",
+  "cb2",
+  "cable_blowing_km",
+  "ibd_m",
+  "sec_photos",
+  "photos",
+  "remarks"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "options": "DPR-.YYYY.-",
+   "default": "DPR-.YYYY.-",
+   "hidden": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "ug_site",
+   "fieldtype": "Link",
+   "label": "UG Site",
+   "options": "UG Site",
+   "reqd": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "node_id",
+   "fieldtype": "Data",
+   "label": "Node ID",
+   "fetch_from": "ug_site.node_id",
+   "read_only": 1,
+   "in_list_view": 1,
+   "in_global_search": 1
+  },
+  {
+   "fieldname": "node_name",
+   "fieldtype": "Data",
+   "label": "Node Name",
+   "fetch_from": "ug_site.node_name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "pm_user",
+   "fieldtype": "Link",
+   "label": "PM User",
+   "options": "User",
+   "fetch_from": "ug_site.pm_user",
+   "read_only": 1,
+   "hidden": 1
+  },
+  {
+   "fieldname": "am_user",
+   "fieldtype": "Link",
+   "label": "Area Manager User",
+   "options": "User",
+   "fetch_from": "ug_site.am_user",
+   "read_only": 1,
+   "hidden": 1
+  },
+  {
+   "fieldname": "cb1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "progress_date",
+   "fieldtype": "Date",
+   "label": "Date",
+   "reqd": 1,
+   "default": "Today",
+   "in_list_view": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "vendor",
+   "fieldtype": "Link",
+   "label": "Vendor / Team",
+   "options": "UG Vendor",
+   "fetch_from": "ug_site.execution_vendor",
+   "fetch_if_empty": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "show_ibd",
+   "fieldtype": "Check",
+   "label": "Show IBD",
+   "read_only": 1,
+   "hidden": 1
+  },
+  {
+   "fieldname": "sec_today",
+   "fieldtype": "Section Break",
+   "label": "Done Today"
+  },
+  {
+   "fieldname": "td_km",
+   "fieldtype": "Float",
+   "label": "T&D Today (km)",
+   "precision": "3",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "section_chainage",
+   "fieldtype": "Data",
+   "label": "Section / Chainage"
+  },
+  {
+   "fieldname": "cb2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "cable_blowing_km",
+   "fieldtype": "Float",
+   "label": "Cable Blowing Today (km)",
+   "precision": "3",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "ibd_m",
+   "fieldtype": "Float",
+   "label": "IBD / FTTB Today (m)",
+   "depends_on": "show_ibd"
+  },
+  {
+   "fieldname": "sec_photos",
+   "fieldtype": "Section Break",
+   "label": "Geo-tagged Photos and Remarks"
+  },
+  {
+   "fieldname": "photos",
+   "fieldtype": "Table",
+   "label": "Photos",
+   "options": "UG Photo"
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Small Text",
+   "label": "Remarks"
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "modified": "2026-10-29 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Underground",
+ "name": "UG Daily Progress",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1
+  },
+  {
+   "role": "UG Admin",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1
+  },
+  {
+   "role": "UG Back Office",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  },
+  {
+   "role": "UG Project Manager",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1,
+   "write": 1,
+   "create": 1
+  },
+  {
+   "role": "UG Area Manager",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1,
+   "write": 1,
+   "create": 1
+  },
+  {
+   "role": "UG Survey Team",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  },
+  {
+   "role": "UG ROW Team",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  },
+  {
+   "role": "UG Material Team",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  },
+  {
+   "role": "UG Warehouse",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  },
+  {
+   "role": "UG Execution Team",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1,
+   "write": 1,
+   "create": 1
+  },
+  {
+   "role": "UG Splicer",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  },
+  {
+   "role": "UG Vendor",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  },
+  {
+   "role": "UG ATC Manager",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  },
+  {
+   "role": "UG Billing",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  },
+  {
+   "role": "UG Management",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "progress_date",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "node_id"
+}

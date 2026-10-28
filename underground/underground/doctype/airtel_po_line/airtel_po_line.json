@@ -1,0 +1,161 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "creation": "2026-10-29 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "line_no",
+  "item_code",
+  "scope",
+  "node_id",
+  "ug_site",
+  "qty",
+  "uom",
+  "rate",
+  "amount",
+  "line_total",
+  "cb1",
+  "description",
+  "cwip_id",
+  "need_by",
+  "cgst",
+  "sgst",
+  "igst",
+  "gbpa_no",
+  "sac"
+ ],
+ "fields": [
+  {
+   "fieldname": "line_no",
+   "fieldtype": "Int",
+   "label": "S.No",
+   "in_list_view": 1,
+   "columns": 1
+  },
+  {
+   "fieldname": "item_code",
+   "fieldtype": "Data",
+   "label": "Item Code",
+   "in_list_view": 1,
+   "columns": 1
+  },
+  {
+   "fieldname": "scope",
+   "fieldtype": "Select",
+   "label": "Scope",
+   "options": "T&D\nIBD\nMobilization\nOther",
+   "in_list_view": 1,
+   "columns": 1,
+   "default": "T&D"
+  },
+  {
+   "fieldname": "node_id",
+   "fieldtype": "Data",
+   "label": "Node ID",
+   "in_list_view": 1,
+   "columns": 2,
+   "description": "Read from the line text; correct it if the PO words it differently."
+  },
+  {
+   "fieldname": "ug_site",
+   "fieldtype": "Link",
+   "label": "UG Site",
+   "options": "UG Site",
+   "in_list_view": 1,
+   "columns": 1,
+   "description": "Matched by Node ID. Blank: a new site is created on Create / Update Sites."
+  },
+  {
+   "fieldname": "qty",
+   "fieldtype": "Float",
+   "label": "Qty",
+   "in_list_view": 1,
+   "columns": 1
+  },
+  {
+   "fieldname": "uom",
+   "fieldtype": "Data",
+   "label": "Unit"
+  },
+  {
+   "fieldname": "rate",
+   "fieldtype": "Currency",
+   "label": "Rate",
+   "in_list_view": 1,
+   "columns": 1
+  },
+  {
+   "fieldname": "amount",
+   "fieldtype": "Currency",
+   "label": "Amount",
+   "in_list_view": 1,
+   "columns": 1
+  },
+  {
+   "fieldname": "line_total",
+   "fieldtype": "Currency",
+   "label": "Total incl. GST",
+   "in_list_view": 1,
+   "columns": 1
+  },
+  {
+   "fieldname": "cb1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "label": "Item Description"
+  },
+  {
+   "fieldname": "cwip_id",
+   "fieldtype": "Data",
+   "label": "CWIP ID"
+  },
+  {
+   "fieldname": "need_by",
+   "fieldtype": "Date",
+   "label": "Need By"
+  },
+  {
+   "fieldname": "cgst",
+   "fieldtype": "Currency",
+   "label": "CGST"
+  },
+  {
+   "fieldname": "sgst",
+   "fieldtype": "Currency",
+   "label": "SGST"
+  },
+  {
+   "fieldname": "igst",
+   "fieldtype": "Currency",
+   "label": "IGST"
+  },
+  {
+   "fieldname": "gbpa_no",
+   "fieldtype": "Data",
+   "label": "GBPA No"
+  },
+  {
+   "fieldname": "sac",
+   "fieldtype": "Data",
+   "label": "SAC"
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-10-29 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Underground",
+ "name": "Airtel PO Line",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

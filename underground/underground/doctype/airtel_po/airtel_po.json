@@ -1,0 +1,408 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:po_no",
+ "creation": "2026-10-29 00:00:00.000000",
+ "description": "One Airtel purchase order, read from its PDF and pushed onto the UG Sites it covers.",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "po_file",
+  "status",
+  "cb_file",
+  "po_receipt_date",
+  "sec_header",
+  "po_number",
+  "po_no",
+  "po_type",
+  "replaces_po",
+  "old_po_ref",
+  "cb_header1",
+  "po_date",
+  "rev_no",
+  "rev_date",
+  "cb_header2",
+  "internal_ref",
+  "buyer_name",
+  "sec_lines",
+  "lines",
+  "sec_totals",
+  "total_basic",
+  "total_tax",
+  "cb_totals",
+  "total_value",
+  "sec_new_sites",
+  "work_type",
+  "project_manager",
+  "cb_new1",
+  "zone",
+  "district",
+  "airtel_spoc",
+  "sec_terms",
+  "payment_terms"
+ ],
+ "fields": [
+  {
+   "fieldname": "po_file",
+   "fieldtype": "Attach",
+   "label": "PO PDF",
+   "description": "Attach the PO PDF from Airtel's email: the fields below fill themselves from it."
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Draft\nApplied",
+   "read_only": 1,
+   "no_copy": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "default": "Draft"
+  },
+  {
+   "fieldname": "cb_file",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "po_receipt_date",
+   "fieldtype": "Date",
+   "label": "PO Receipt Date (Day 0)",
+   "default": "Today",
+   "reqd": 1,
+   "description": "The day the PO email arrived; Day 0 for any site this PO creates."
+  },
+  {
+   "fieldname": "sec_header",
+   "fieldtype": "Section Break",
+   "label": "Purchase Order"
+  },
+  {
+   "fieldname": "po_number",
+   "fieldtype": "Data",
+   "label": "PO Number",
+   "reqd": 1,
+   "in_global_search": 1
+  },
+  {
+   "fieldname": "po_no",
+   "fieldtype": "Data",
+   "label": "PO No (short)",
+   "reqd": 1,
+   "unique": 1,
+   "in_list_view": 1,
+   "bold": 1
+  },
+  {
+   "fieldname": "po_type",
+   "fieldtype": "Select",
+   "label": "PO Type",
+   "options": "Original\nLength Amendment\nRate Revision\nMobilization\nOther",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "default": "Original"
+  },
+  {
+   "fieldname": "replaces_po",
+   "fieldtype": "Link",
+   "label": "Replaces PO",
+   "options": "Airtel PO",
+   "depends_on": "eval:['Length Amendment','Rate Revision'].includes(doc.po_type)",
+   "description": "Lines of this PO on the same sites are marked superseded."
+  },
+  {
+   "fieldname": "old_po_ref",
+   "fieldtype": "Data",
+   "label": "Old PO No (from text)",
+   "read_only": 1,
+   "depends_on": "old_po_ref"
+  },
+  {
+   "fieldname": "cb_header1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "po_date",
+   "fieldtype": "Date",
+   "label": "PO Date",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "rev_no",
+   "fieldtype": "Int",
+   "label": "Rev No"
+  },
+  {
+   "fieldname": "rev_date",
+   "fieldtype": "Date",
+   "label": "Rev Date"
+  },
+  {
+   "fieldname": "cb_header2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "internal_ref",
+   "fieldtype": "Data",
+   "label": "Internal Ref No (NFA)",
+   "in_global_search": 1
+  },
+  {
+   "fieldname": "buyer_name",
+   "fieldtype": "Data",
+   "label": "Buyer Name"
+  },
+  {
+   "fieldname": "sec_lines",
+   "fieldtype": "Section Break",
+   "label": "Lines"
+  },
+  {
+   "fieldname": "lines",
+   "fieldtype": "Table",
+   "label": "Lines",
+   "options": "Airtel PO Line"
+  },
+  {
+   "fieldname": "sec_totals",
+   "fieldtype": "Section Break",
+   "label": "Totals"
+  },
+  {
+   "fieldname": "total_basic",
+   "fieldtype": "Currency",
+   "label": "Total (excl. GST)",
+   "read_only": 1,
+   "no_copy": 1
+  },
+  {
+   "fieldname": "total_tax",
+   "fieldtype": "Currency",
+   "label": "GST",
+   "read_only": 1,
+   "no_copy": 1
+  },
+  {
+   "fieldname": "cb_totals",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total_value",
+   "fieldtype": "Currency",
+   "label": "Total PO Value (as printed)",
+   "in_list_view": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "sec_new_sites",
+   "fieldtype": "Section Break",
+   "label": "Defaults for New Sites",
+   "collapsible": 1,
+   "description": "Used only when a line's Node ID has no UG Site yet."
+  },
+  {
+   "fieldname": "work_type",
+   "fieldtype": "Link",
+   "label": "Work Type",
+   "options": "UG Work Type"
+  },
+  {
+   "fieldname": "project_manager",
+   "fieldtype": "Link",
+   "label": "Project Manager",
+   "options": "UG Employee"
+  },
+  {
+   "fieldname": "cb_new1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "zone",
+   "fieldtype": "Link",
+   "label": "Zone / Area",
+   "options": "UG Zone"
+  },
+  {
+   "fieldname": "district",
+   "fieldtype": "Link",
+   "label": "District",
+   "options": "UG District"
+  },
+  {
+   "fieldname": "airtel_spoc",
+   "fieldtype": "Link",
+   "label": "Airtel SPOC",
+   "options": "Airtel SPOC"
+  },
+  {
+   "fieldname": "sec_terms",
+   "fieldtype": "Section Break",
+   "label": "Payment Terms",
+   "collapsible": 1
+  },
+  {
+   "fieldname": "payment_terms",
+   "fieldtype": "Small Text",
+   "label": "Payment Terms"
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "modified": "2026-10-29 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Underground",
+ "name": "Airtel PO",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1
+  },
+  {
+   "role": "UG Admin",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1
+  },
+  {
+   "role": "UG Back Office",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1,
+   "write": 1,
+   "create": 1
+  },
+  {
+   "role": "UG Project Manager",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  },
+  {
+   "role": "UG Area Manager",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  },
+  {
+   "role": "UG Survey Team",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  },
+  {
+   "role": "UG ROW Team",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  },
+  {
+   "role": "UG Material Team",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  },
+  {
+   "role": "UG Warehouse",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  },
+  {
+   "role": "UG Execution Team",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  },
+  {
+   "role": "UG Splicer",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  },
+  {
+   "role": "UG Vendor",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  },
+  {
+   "role": "UG ATC Manager",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  },
+  {
+   "role": "UG Billing",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  },
+  {
+   "role": "UG Management",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "search_fields": "po_number,po_type,po_date",
+ "sort_field": "po_date",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "po_no",
+ "track_changes": 1
+}

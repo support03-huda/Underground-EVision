@@ -1,0 +1,116 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "creation": "2026-10-29 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "location",
+  "chainage",
+  "length_m",
+  "request_date",
+  "status",
+  "approved_depth",
+  "approval_date",
+  "cb1",
+  "latitude",
+  "longitude",
+  "photo",
+  "remarks"
+ ],
+ "fields": [
+  {
+   "fieldname": "location",
+   "fieldtype": "Data",
+   "label": "Location",
+   "in_list_view": 1,
+   "columns": 2
+  },
+  {
+   "fieldname": "chainage",
+   "fieldtype": "Data",
+   "label": "Chainage",
+   "in_list_view": 1,
+   "columns": 1
+  },
+  {
+   "fieldname": "length_m",
+   "fieldtype": "Float",
+   "label": "Length (m)",
+   "in_list_view": 1,
+   "columns": 1
+  },
+  {
+   "fieldname": "request_date",
+   "fieldtype": "Date",
+   "label": "Request Date",
+   "in_list_view": 1,
+   "columns": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Not Required\nRequest Sent\nApproval Pending\nApproved\nRejected\nClosed",
+   "in_list_view": 1,
+   "columns": 2,
+   "default": "Request Sent"
+  },
+  {
+   "fieldname": "approved_depth",
+   "fieldtype": "Float",
+   "label": "Approved Depth (m)",
+   "in_list_view": 1,
+   "columns": 1,
+   "description": "Allowed only once Airtel has approved this stretch."
+  },
+  {
+   "fieldname": "approval_date",
+   "fieldtype": "Date",
+   "label": "Approval Date",
+   "in_list_view": 1,
+   "columns": 1
+  },
+  {
+   "fieldname": "cb1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "latitude",
+   "fieldtype": "Float",
+   "label": "Latitude",
+   "precision": "6"
+  },
+  {
+   "fieldname": "longitude",
+   "fieldtype": "Float",
+   "label": "Longitude",
+   "precision": "6"
+  },
+  {
+   "fieldname": "photo",
+   "fieldtype": "Attach Image",
+   "label": "Photo"
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Small Text",
+   "label": "Reason / Remarks",
+   "description": "e.g. rock or hard strata at 0.8 m"
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-10-29 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Underground",
+ "name": "UG Depth Deviation",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

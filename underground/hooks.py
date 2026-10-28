@@ -5,28 +5,61 @@ app_description = "Evision underground module "
 app_email = "support03@softworld.co.in"
 app_license = "mit"
 
+# UG Fiber ERP: Airtel underground fiber sites from PO receipt to handover.
+
+before_migrate = ["underground.install.create_roles", "underground.install.setup_assignment_board"]
+after_install = "underground.install.after_install"
+after_migrate = ["underground.install.setup_defaults"]
+
+permission_query_conditions = {
+	"UG Site": "underground.permission.ug_site_conditions",
+	"ROW Application": "underground.permission.row_application_conditions",
+	"UG Daily Progress": "underground.permission.daily_progress_conditions",
+	"UG Punch Point": "underground.permission.punch_point_conditions",
+	"UG Material Request": "underground.permission.material_request_conditions",
+	"UG Splicer": "underground.permission.splicer_conditions",
+}
+has_permission = {
+	"UG Site": "underground.permission.has_site_permission",
+	"ROW Application": "underground.permission.has_site_permission",
+	"UG Daily Progress": "underground.permission.has_site_permission",
+	"UG Punch Point": "underground.permission.has_site_permission",
+	"UG Material Request": "underground.permission.has_site_permission",
+	"UG Splicer": "underground.permission.has_splicer_permission",
+}
+
+scheduler_events = {
+	"cron": {
+		"30 6 * * *": ["underground.tasks.daily"],
+	},
+}
+
 # Apps
 # ------------------
 
 # required_apps = []
 
+app_logo_url = "/assets/underground/images/underground-logo.svg"
+app_home = "/app/underground"
+app_color = "#1D4E89"
+
 # Each item in the list will be shown as an app in the apps page
-# add_to_apps_screen = [
-# 	{
-# 		"name": "underground",
-# 		"logo": "/assets/underground/logo.png",
-# 		"title": "Underground",
-# 		"route": "/underground",
-# 		"has_permission": "underground.api.permission.has_app_permission"
-# 	}
-# ]
+add_to_apps_screen = [
+	{
+		"name": "underground",
+		"logo": app_logo_url,
+		"title": "Underground",
+		"route": app_home,
+		"has_permission": "underground.permission.has_app_permission",
+	}
+]
 
 # Includes in <head>
 # ------------------
 
 # include js, css files in header of desk.html
 # app_include_css = "/assets/underground/css/underground.css"
-# app_include_js = "/assets/underground/js/underground.js"
+app_include_js = "/assets/underground/js/underground.js"
 
 # include js, css files in header of web template
 # web_include_css = "/assets/underground/css/underground.css"

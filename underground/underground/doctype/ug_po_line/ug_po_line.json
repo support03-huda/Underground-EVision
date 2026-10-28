@@ -1,0 +1,148 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "creation": "2026-10-29 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "airtel_po",
+  "line_item",
+  "item_code",
+  "scope",
+  "description",
+  "qty",
+  "uom",
+  "civil_length",
+  "optical_length",
+  "rate",
+  "amount",
+  "superseded",
+  "cb1",
+  "po_type",
+  "need_by",
+  "tax_amount",
+  "line_total"
+ ],
+ "fields": [
+  {
+   "fieldname": "airtel_po",
+   "fieldtype": "Link",
+   "label": "Airtel PO",
+   "options": "Airtel PO"
+  },
+  {
+   "fieldname": "line_item",
+   "fieldtype": "Data",
+   "label": "Line Item",
+   "columns": 1
+  },
+  {
+   "fieldname": "item_code",
+   "fieldtype": "Data",
+   "label": "Item Code",
+   "in_list_view": 1,
+   "columns": 1
+  },
+  {
+   "fieldname": "scope",
+   "fieldtype": "Select",
+   "label": "Scope",
+   "options": "T&D\nIBD\nMobilization\nOther",
+   "in_list_view": 1,
+   "columns": 1,
+   "default": "T&D"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "label": "Description",
+   "in_list_view": 1,
+   "columns": 3
+  },
+  {
+   "fieldname": "qty",
+   "fieldtype": "Float",
+   "label": "Qty",
+   "in_list_view": 1,
+   "columns": 1
+  },
+  {
+   "fieldname": "uom",
+   "fieldtype": "Data",
+   "label": "Unit"
+  },
+  {
+   "fieldname": "civil_length",
+   "fieldtype": "Float",
+   "label": "Civil / Duct Length (m)",
+   "in_list_view": 1,
+   "columns": 1
+  },
+  {
+   "fieldname": "optical_length",
+   "fieldtype": "Float",
+   "label": "Optical / Cable Length (m)"
+  },
+  {
+   "fieldname": "rate",
+   "fieldtype": "Currency",
+   "label": "Rate",
+   "in_list_view": 1,
+   "columns": 1
+  },
+  {
+   "fieldname": "amount",
+   "fieldtype": "Currency",
+   "label": "Amount",
+   "read_only": 1,
+   "no_copy": 1,
+   "in_list_view": 1,
+   "columns": 1
+  },
+  {
+   "fieldname": "superseded",
+   "fieldtype": "Check",
+   "label": "Superseded",
+   "description": "Replaced by a later PO (rate revision / length amendment); left out of PO totals."
+  },
+  {
+   "fieldname": "cb1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "po_type",
+   "fieldtype": "Data",
+   "label": "PO Type",
+   "read_only": 1
+  },
+  {
+   "fieldname": "need_by",
+   "fieldtype": "Date",
+   "label": "Need By"
+  },
+  {
+   "fieldname": "tax_amount",
+   "fieldtype": "Currency",
+   "label": "GST"
+  },
+  {
+   "fieldname": "line_total",
+   "fieldtype": "Currency",
+   "label": "Total incl. GST"
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-10-29 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Underground",
+ "name": "UG PO Line",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

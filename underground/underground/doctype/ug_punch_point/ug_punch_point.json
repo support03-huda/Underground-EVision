@@ -1,0 +1,442 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "autoname": "naming_series:",
+ "creation": "2026-10-29 00:00:00.000000",
+ "description": "One record per Airtel punch point (the ATC Tracker).",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "ug_site",
+  "node_id",
+  "node_name",
+  "pm_user",
+  "am_user",
+  "job_id",
+  "cb_site1",
+  "work_type",
+  "route",
+  "civil_length",
+  "optical_length",
+  "cb_site2",
+  "ff1_status",
+  "pe_name",
+  "sec_pp",
+  "pp_category",
+  "pp_group",
+  "sub_category",
+  "cb_pp1",
+  "status",
+  "current_ageing",
+  "sec_issue",
+  "issue_description",
+  "action_required",
+  "action_taken",
+  "sec_resp",
+  "responsible_party",
+  "responsible_person",
+  "cb_resp1",
+  "date_assigned",
+  "nc_resolved_date",
+  "sec_evidence",
+  "evidence",
+  "evidence_photos"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "options": "PP-.YYYY.-",
+   "default": "PP-.YYYY.-",
+   "hidden": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "ug_site",
+   "fieldtype": "Link",
+   "label": "UG Site",
+   "options": "UG Site",
+   "reqd": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "node_id",
+   "fieldtype": "Data",
+   "label": "Node ID",
+   "fetch_from": "ug_site.node_id",
+   "read_only": 1,
+   "in_list_view": 1,
+   "in_global_search": 1
+  },
+  {
+   "fieldname": "node_name",
+   "fieldtype": "Data",
+   "label": "Node Name",
+   "fetch_from": "ug_site.node_name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "pm_user",
+   "fieldtype": "Link",
+   "label": "PM User",
+   "options": "User",
+   "fetch_from": "ug_site.pm_user",
+   "read_only": 1,
+   "hidden": 1
+  },
+  {
+   "fieldname": "am_user",
+   "fieldtype": "Link",
+   "label": "Area Manager User",
+   "options": "User",
+   "fetch_from": "ug_site.am_user",
+   "read_only": 1,
+   "hidden": 1
+  },
+  {
+   "fieldname": "job_id",
+   "fieldtype": "Data",
+   "label": "Job ID",
+   "fetch_from": "ug_site.job_id",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cb_site1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "work_type",
+   "fieldtype": "Data",
+   "label": "Site Type",
+   "fetch_from": "ug_site.work_type",
+   "read_only": 1
+  },
+  {
+   "fieldname": "route",
+   "fieldtype": "Data",
+   "label": "Route",
+   "fetch_from": "ug_site.route",
+   "read_only": 1
+  },
+  {
+   "fieldname": "civil_length",
+   "fieldtype": "Float",
+   "label": "Civil Length (m)",
+   "fetch_from": "ug_site.po_civil_length",
+   "read_only": 1
+  },
+  {
+   "fieldname": "optical_length",
+   "fieldtype": "Float",
+   "label": "Optical Length (m)",
+   "fetch_from": "ug_site.po_optical_length",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cb_site2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "ff1_status",
+   "fieldtype": "Data",
+   "label": "Current FF1 Status",
+   "description": "As shown in Airtel Works."
+  },
+  {
+   "fieldname": "pe_name",
+   "fieldtype": "Data",
+   "label": "PE Name"
+  },
+  {
+   "fieldname": "sec_pp",
+   "fieldtype": "Section Break",
+   "label": "Punch Point"
+  },
+  {
+   "fieldname": "pp_category",
+   "fieldtype": "Link",
+   "label": "PP Category",
+   "options": "PP Category",
+   "reqd": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "pp_group",
+   "fieldtype": "Data",
+   "label": "Counts As",
+   "fetch_from": "pp_category.pp_group",
+   "read_only": 1
+  },
+  {
+   "fieldname": "sub_category",
+   "fieldtype": "Link",
+   "label": "Sub-Category",
+   "options": "PP Sub Category"
+  },
+  {
+   "fieldname": "cb_pp1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Current Status",
+   "options": "Open\nIn Progress\nClosed",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "default": "Open"
+  },
+  {
+   "fieldname": "current_ageing",
+   "fieldtype": "Int",
+   "label": "Current Ageing (days)",
+   "read_only": 1,
+   "no_copy": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "sec_issue",
+   "fieldtype": "Section Break",
+   "label": "Issue and Action"
+  },
+  {
+   "fieldname": "issue_description",
+   "fieldtype": "Small Text",
+   "label": "Issue Description",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "action_required",
+   "fieldtype": "Small Text",
+   "label": "Action Required"
+  },
+  {
+   "fieldname": "action_taken",
+   "fieldtype": "Small Text",
+   "label": "Action Taken",
+   "mandatory_depends_on": "eval:doc.status=='Closed'"
+  },
+  {
+   "fieldname": "sec_resp",
+   "fieldtype": "Section Break",
+   "label": "Responsibility"
+  },
+  {
+   "fieldname": "responsible_party",
+   "fieldtype": "Select",
+   "label": "Responsible Party",
+   "options": "RKBG\nAirtel",
+   "in_standard_filter": 1,
+   "default": "RKBG"
+  },
+  {
+   "fieldname": "responsible_person",
+   "fieldtype": "Link",
+   "label": "Responsible Person",
+   "options": "User"
+  },
+  {
+   "fieldname": "cb_resp1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "date_assigned",
+   "fieldtype": "Date",
+   "label": "Date Assigned",
+   "default": "Today",
+   "reqd": 1
+  },
+  {
+   "fieldname": "nc_resolved_date",
+   "fieldtype": "Date",
+   "label": "NC Resolved Date"
+  },
+  {
+   "fieldname": "sec_evidence",
+   "fieldtype": "Section Break",
+   "label": "Evidence"
+  },
+  {
+   "fieldname": "evidence",
+   "fieldtype": "Attach",
+   "label": "Evidence",
+   "description": "Required before the punch point is closed."
+  },
+  {
+   "fieldname": "evidence_photos",
+   "fieldtype": "Table",
+   "label": "Evidence Photos",
+   "options": "UG Photo"
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "modified": "2026-10-29 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Underground",
+ "name": "UG Punch Point",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1
+  },
+  {
+   "role": "UG Admin",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1
+  },
+  {
+   "role": "UG Back Office",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1,
+   "write": 1,
+   "create": 1
+  },
+  {
+   "role": "UG Project Manager",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1,
+   "write": 1
+  },
+  {
+   "role": "UG Area Manager",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1,
+   "write": 1
+  },
+  {
+   "role": "UG Survey Team",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  },
+  {
+   "role": "UG ROW Team",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  },
+  {
+   "role": "UG Material Team",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  },
+  {
+   "role": "UG Warehouse",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  },
+  {
+   "role": "UG Execution Team",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1,
+   "write": 1
+  },
+  {
+   "role": "UG Splicer",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  },
+  {
+   "role": "UG Vendor",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  },
+  {
+   "role": "UG ATC Manager",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1,
+   "write": 1,
+   "create": 1
+  },
+  {
+   "role": "UG Billing",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  },
+  {
+   "role": "UG Management",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "search_fields": "ug_site,node_id,pp_category",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "issue_description",
+ "track_changes": 1
+}

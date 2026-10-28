@@ -1,0 +1,119 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "creation": "2026-10-29 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "ug_site",
+  "node_id",
+  "item",
+  "cable_type",
+  "duct_colour",
+  "ordered_qty",
+  "received_qty",
+  "uom",
+  "cb1",
+  "material_request",
+  "cable_id"
+ ],
+ "fields": [
+  {
+   "fieldname": "ug_site",
+   "fieldtype": "Link",
+   "label": "UG Site",
+   "options": "UG Site",
+   "reqd": 1,
+   "in_list_view": 1,
+   "columns": 2
+  },
+  {
+   "fieldname": "node_id",
+   "fieldtype": "Data",
+   "label": "Node ID",
+   "fetch_from": "ug_site.node_id",
+   "read_only": 1,
+   "in_list_view": 1,
+   "columns": 1
+  },
+  {
+   "fieldname": "item",
+   "fieldtype": "Link",
+   "label": "Material",
+   "options": "UG Material Item",
+   "reqd": 1,
+   "in_list_view": 1,
+   "columns": 2
+  },
+  {
+   "fieldname": "cable_type",
+   "fieldtype": "Link",
+   "label": "Cable Type",
+   "options": "UG Cable Type",
+   "in_list_view": 1,
+   "columns": 1
+  },
+  {
+   "fieldname": "duct_colour",
+   "fieldtype": "Link",
+   "label": "Duct Colour",
+   "options": "UG Duct Colour",
+   "in_list_view": 1,
+   "columns": 1
+  },
+  {
+   "fieldname": "ordered_qty",
+   "fieldtype": "Float",
+   "label": "Ordered Qty",
+   "reqd": 1,
+   "in_list_view": 1,
+   "columns": 1
+  },
+  {
+   "fieldname": "received_qty",
+   "fieldtype": "Float",
+   "label": "Received Qty",
+   "in_list_view": 1,
+   "columns": 1
+  },
+  {
+   "fieldname": "uom",
+   "fieldtype": "Data",
+   "label": "Unit",
+   "fetch_from": "item.uom",
+   "read_only": 1,
+   "in_list_view": 1,
+   "columns": 1
+  },
+  {
+   "fieldname": "cb1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "material_request",
+   "fieldtype": "Link",
+   "label": "Material Request",
+   "options": "UG Material Request"
+  },
+  {
+   "fieldname": "cable_id",
+   "fieldtype": "Data",
+   "label": "Cable ID / Drum No",
+   "description": "For fibre cable received: the ID printed on the drum."
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-10-29 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Underground",
+ "name": "UG Material Order Item",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

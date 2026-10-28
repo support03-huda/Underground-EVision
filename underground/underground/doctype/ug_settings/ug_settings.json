@@ -1,0 +1,273 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "creation": "2026-10-29 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "sec_depth",
+  "standard_trench_depth",
+  "sec_alerts",
+  "kmz_due_day",
+  "feasibility_due_day",
+  "cwip_due_day",
+  "cb1",
+  "site_overdue_day",
+  "site_limit_day",
+  "airtel_reply_days",
+  "cb2",
+  "pp_ageing_alert_days",
+  "bg_expiry_alert_days",
+  "sec_billing",
+  "retention_percent",
+  "send_emails"
+ ],
+ "fields": [
+  {
+   "fieldname": "sec_depth",
+   "fieldtype": "Section Break",
+   "label": "Execution"
+  },
+  {
+   "fieldname": "standard_trench_depth",
+   "fieldtype": "Float",
+   "label": "Standard Trench Depth (m)",
+   "default": "1.2"
+  },
+  {
+   "fieldname": "sec_alerts",
+   "fieldtype": "Section Break",
+   "label": "Alerts (days from PO receipt)"
+  },
+  {
+   "fieldname": "kmz_due_day",
+   "fieldtype": "Int",
+   "label": "KMZ Due By Day",
+   "default": "7"
+  },
+  {
+   "fieldname": "feasibility_due_day",
+   "fieldtype": "Int",
+   "label": "Feasibility Due By Day",
+   "default": "21"
+  },
+  {
+   "fieldname": "cwip_due_day",
+   "fieldtype": "Int",
+   "label": "CWIP Due By Day",
+   "default": "25"
+  },
+  {
+   "fieldname": "cb1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "site_overdue_day",
+   "fieldtype": "Int",
+   "label": "Site Overdue Alert Day",
+   "default": "150"
+  },
+  {
+   "fieldname": "site_limit_day",
+   "fieldtype": "Int",
+   "label": "Site Limit Day",
+   "default": "180"
+  },
+  {
+   "fieldname": "airtel_reply_days",
+   "fieldtype": "Int",
+   "label": "Airtel Reply Wait (days)",
+   "default": "5",
+   "description": "Length extension / rate revision reminder goes to the Airtel SPOC after this, then every Monday."
+  },
+  {
+   "fieldname": "cb2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "pp_ageing_alert_days",
+   "fieldtype": "Int",
+   "label": "Punch Point Ageing Alert (days)",
+   "default": "15"
+  },
+  {
+   "fieldname": "bg_expiry_alert_days",
+   "fieldtype": "Int",
+   "label": "BG Expiry Alert (days before)",
+   "default": "30"
+  },
+  {
+   "fieldname": "sec_billing",
+   "fieldtype": "Section Break",
+   "label": "Billing"
+  },
+  {
+   "fieldname": "retention_percent",
+   "fieldtype": "Percent",
+   "label": "Retention %",
+   "default": "10"
+  },
+  {
+   "fieldname": "send_emails",
+   "fieldtype": "Check",
+   "label": "Send Alert Emails",
+   "default": "1",
+   "description": "Unticked: alerts are only posted as in-app notifications."
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "issingle": 1,
+ "links": [],
+ "modified": "2026-10-29 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Underground",
+ "name": "UG Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1
+  },
+  {
+   "role": "UG Admin",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1
+  },
+  {
+   "role": "UG Back Office",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  },
+  {
+   "role": "UG Project Manager",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  },
+  {
+   "role": "UG Area Manager",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  },
+  {
+   "role": "UG Survey Team",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  },
+  {
+   "role": "UG ROW Team",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  },
+  {
+   "role": "UG Material Team",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  },
+  {
+   "role": "UG Warehouse",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  },
+  {
+   "role": "UG Execution Team",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  },
+  {
+   "role": "UG Splicer",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  },
+  {
+   "role": "UG Vendor",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  },
+  {
+   "role": "UG ATC Manager",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  },
+  {
+   "role": "UG Billing",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  },
+  {
+   "role": "UG Management",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

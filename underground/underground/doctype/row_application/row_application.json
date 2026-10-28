@@ -1,0 +1,733 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "autoname": "naming_series:",
+ "creation": "2026-10-29 00:00:00.000000",
+ "description": "One record per authority on a site's route; together they make the ROW Tracker.",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "ug_site",
+  "node_id",
+  "node_name",
+  "pm_user",
+  "am_user",
+  "cb_link1",
+  "route",
+  "district",
+  "project_manager",
+  "cb_link2",
+  "permission_status",
+  "row_ageing",
+  "sla_breached",
+  "sec_authority",
+  "row_authority",
+  "authority_type",
+  "expected_days",
+  "cb_auth1",
+  "row_length_km",
+  "chainage",
+  "sec_application",
+  "application_mode",
+  "application_no",
+  "cb_app1",
+  "application_date",
+  "application_status",
+  "sec_demand",
+  "demand_note_no",
+  "demand_note_date",
+  "cb_dn1",
+  "demand_note_amount",
+  "demand_note_status",
+  "sec_payment",
+  "payment_required",
+  "paid_by",
+  "payment_amount",
+  "cb_pay1",
+  "payment_mode",
+  "payment_reference",
+  "payment_date",
+  "sec_sd",
+  "sd_required",
+  "sd_amount",
+  "sd_deposit_date",
+  "cb_sd1",
+  "sd_refund_applied_date",
+  "sd_refund_received_date",
+  "sd_refund_amount",
+  "sd_status",
+  "sec_bg",
+  "bg_required",
+  "bg_no",
+  "bg_bank",
+  "bg_amount",
+  "cb_bg1",
+  "bg_start_date",
+  "bg_end_date",
+  "bg_released_date",
+  "bg_status",
+  "sec_bg_renewals",
+  "bg_renewals",
+  "sec_permission",
+  "permission_date",
+  "cb_perm1",
+  "permission_letter",
+  "sec_rejection",
+  "rejection_reason",
+  "rejection_date",
+  "cb_rej1",
+  "reapplied_date",
+  "attempt_no",
+  "sec_followup",
+  "current_blocker",
+  "remark",
+  "cb_fu1",
+  "next_followup_date",
+  "responsible_person"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "options": "ROW-.YYYY.-",
+   "default": "ROW-.YYYY.-",
+   "hidden": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "ug_site",
+   "fieldtype": "Link",
+   "label": "UG Site",
+   "options": "UG Site",
+   "reqd": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "node_id",
+   "fieldtype": "Data",
+   "label": "Node ID",
+   "fetch_from": "ug_site.node_id",
+   "read_only": 1,
+   "in_list_view": 1,
+   "in_global_search": 1
+  },
+  {
+   "fieldname": "node_name",
+   "fieldtype": "Data",
+   "label": "Node Name",
+   "fetch_from": "ug_site.node_name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "pm_user",
+   "fieldtype": "Link",
+   "label": "PM User",
+   "options": "User",
+   "fetch_from": "ug_site.pm_user",
+   "read_only": 1,
+   "hidden": 1
+  },
+  {
+   "fieldname": "am_user",
+   "fieldtype": "Link",
+   "label": "Area Manager User",
+   "options": "User",
+   "fetch_from": "ug_site.am_user",
+   "read_only": 1,
+   "hidden": 1
+  },
+  {
+   "fieldname": "cb_link1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "route",
+   "fieldtype": "Link",
+   "label": "Route",
+   "options": "UG Route",
+   "fetch_from": "ug_site.route",
+   "read_only": 1
+  },
+  {
+   "fieldname": "district",
+   "fieldtype": "Link",
+   "label": "District",
+   "options": "UG District",
+   "fetch_from": "ug_site.district",
+   "read_only": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "project_manager",
+   "fieldtype": "Link",
+   "label": "Project Manager",
+   "options": "UG Employee",
+   "fetch_from": "ug_site.project_manager",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cb_link2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "permission_status",
+   "fieldtype": "Select",
+   "label": "Permission Status",
+   "options": "Pending\nReceived\nRejected\nReapplied",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "default": "Pending"
+  },
+  {
+   "fieldname": "row_ageing",
+   "fieldtype": "Int",
+   "label": "ROW Ageing (days)",
+   "read_only": 1,
+   "no_copy": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "sla_breached",
+   "fieldtype": "Check",
+   "label": "SLA Breached",
+   "read_only": 1,
+   "no_copy": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "sec_authority",
+   "fieldtype": "Section Break",
+   "label": "Authority"
+  },
+  {
+   "fieldname": "row_authority",
+   "fieldtype": "Link",
+   "label": "Authority Name",
+   "options": "ROW Authority",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "authority_type",
+   "fieldtype": "Link",
+   "label": "Authority Type",
+   "options": "ROW Authority Type",
+   "fetch_from": "row_authority.authority_type",
+   "fetch_if_empty": 1,
+   "reqd": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "expected_days",
+   "fieldtype": "Int",
+   "label": "Expected Days",
+   "fetch_from": "authority_type.expected_days",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cb_auth1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "row_length_km",
+   "fieldtype": "Float",
+   "label": "ROW Length (km)",
+   "precision": "3"
+  },
+  {
+   "fieldname": "chainage",
+   "fieldtype": "Data",
+   "label": "Chainage"
+  },
+  {
+   "fieldname": "sec_application",
+   "fieldtype": "Section Break",
+   "label": "Application"
+  },
+  {
+   "fieldname": "application_mode",
+   "fieldtype": "Select",
+   "label": "Mode",
+   "options": "Online\nOffline",
+   "default": "Online"
+  },
+  {
+   "fieldname": "application_no",
+   "fieldtype": "Data",
+   "label": "Application No / Ref",
+   "in_global_search": 1
+  },
+  {
+   "fieldname": "cb_app1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "application_date",
+   "fieldtype": "Date",
+   "label": "Application Date",
+   "mandatory_depends_on": "eval:doc.application_status!='Draft'"
+  },
+  {
+   "fieldname": "application_status",
+   "fieldtype": "Select",
+   "label": "Application Status",
+   "options": "Draft\nSubmitted\nAcknowledged",
+   "in_standard_filter": 1,
+   "default": "Draft"
+  },
+  {
+   "fieldname": "sec_demand",
+   "fieldtype": "Section Break",
+   "label": "Demand Note"
+  },
+  {
+   "fieldname": "demand_note_no",
+   "fieldtype": "Data",
+   "label": "Demand Note No"
+  },
+  {
+   "fieldname": "demand_note_date",
+   "fieldtype": "Date",
+   "label": "Demand Note Date"
+  },
+  {
+   "fieldname": "cb_dn1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "demand_note_amount",
+   "fieldtype": "Currency",
+   "label": "Demand Note Amount"
+  },
+  {
+   "fieldname": "demand_note_status",
+   "fieldtype": "Select",
+   "label": "Demand Note Status",
+   "options": "Not Received\nReceived\nPaid",
+   "default": "Not Received"
+  },
+  {
+   "fieldname": "sec_payment",
+   "fieldtype": "Section Break",
+   "label": "Payment"
+  },
+  {
+   "fieldname": "payment_required",
+   "fieldtype": "Check",
+   "label": "Payment Required"
+  },
+  {
+   "fieldname": "paid_by",
+   "fieldtype": "Select",
+   "label": "Paid By",
+   "options": "RKBG\nAirtel",
+   "depends_on": "payment_required"
+  },
+  {
+   "fieldname": "payment_amount",
+   "fieldtype": "Currency",
+   "label": "Amount",
+   "depends_on": "payment_required"
+  },
+  {
+   "fieldname": "cb_pay1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "payment_mode",
+   "fieldtype": "Link",
+   "label": "Payment Mode",
+   "options": "UG Payment Mode",
+   "depends_on": "payment_required"
+  },
+  {
+   "fieldname": "payment_reference",
+   "fieldtype": "Data",
+   "label": "DD / Reference No",
+   "depends_on": "payment_required"
+  },
+  {
+   "fieldname": "payment_date",
+   "fieldtype": "Date",
+   "label": "Payment Date",
+   "depends_on": "payment_required"
+  },
+  {
+   "fieldname": "sec_sd",
+   "fieldtype": "Section Break",
+   "label": "Security Deposit"
+  },
+  {
+   "fieldname": "sd_required",
+   "fieldtype": "Check",
+   "label": "SD Required"
+  },
+  {
+   "fieldname": "sd_amount",
+   "fieldtype": "Currency",
+   "label": "SD Amount",
+   "depends_on": "sd_required"
+  },
+  {
+   "fieldname": "sd_deposit_date",
+   "fieldtype": "Date",
+   "label": "Date Deposited",
+   "depends_on": "sd_required"
+  },
+  {
+   "fieldname": "cb_sd1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "sd_refund_applied_date",
+   "fieldtype": "Date",
+   "label": "Refund Applied Date",
+   "depends_on": "sd_required"
+  },
+  {
+   "fieldname": "sd_refund_received_date",
+   "fieldtype": "Date",
+   "label": "Refund Received Date",
+   "depends_on": "sd_required"
+  },
+  {
+   "fieldname": "sd_refund_amount",
+   "fieldtype": "Currency",
+   "label": "Refund Received Amount",
+   "depends_on": "sd_required"
+  },
+  {
+   "fieldname": "sd_status",
+   "fieldtype": "Select",
+   "label": "SD Status",
+   "read_only": 1,
+   "no_copy": 1,
+   "options": "Not Required\nPending Deposit\nDeposited\nRefund Applied\nRefunded",
+   "default": "Not Required"
+  },
+  {
+   "fieldname": "sec_bg",
+   "fieldtype": "Section Break",
+   "label": "Bank Guarantee"
+  },
+  {
+   "fieldname": "bg_required",
+   "fieldtype": "Check",
+   "label": "BG Required"
+  },
+  {
+   "fieldname": "bg_no",
+   "fieldtype": "Data",
+   "label": "BG No",
+   "depends_on": "bg_required"
+  },
+  {
+   "fieldname": "bg_bank",
+   "fieldtype": "Data",
+   "label": "Issuing Bank",
+   "depends_on": "bg_required"
+  },
+  {
+   "fieldname": "bg_amount",
+   "fieldtype": "Currency",
+   "label": "BG Amount",
+   "depends_on": "bg_required"
+  },
+  {
+   "fieldname": "cb_bg1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "bg_start_date",
+   "fieldtype": "Date",
+   "label": "BG Start Date",
+   "depends_on": "bg_required"
+  },
+  {
+   "fieldname": "bg_end_date",
+   "fieldtype": "Date",
+   "label": "BG End Date",
+   "depends_on": "bg_required",
+   "description": "Moves to the latest renewal's end date automatically."
+  },
+  {
+   "fieldname": "bg_released_date",
+   "fieldtype": "Date",
+   "label": "BG Released Date",
+   "depends_on": "bg_required"
+  },
+  {
+   "fieldname": "bg_status",
+   "fieldtype": "Select",
+   "label": "BG Status",
+   "read_only": 1,
+   "no_copy": 1,
+   "options": "Not Required\nActive\nExpiring\nExpired\nReleased",
+   "default": "Not Required"
+  },
+  {
+   "fieldname": "sec_bg_renewals",
+   "fieldtype": "Section Break",
+   "label": "BG Renewals",
+   "depends_on": "bg_required",
+   "collapsible": 1
+  },
+  {
+   "fieldname": "bg_renewals",
+   "fieldtype": "Table",
+   "label": "BG Renewals",
+   "options": "UG BG Renewal"
+  },
+  {
+   "fieldname": "sec_permission",
+   "fieldtype": "Section Break",
+   "label": "Permission"
+  },
+  {
+   "fieldname": "permission_date",
+   "fieldtype": "Date",
+   "label": "Permission Date",
+   "mandatory_depends_on": "eval:doc.permission_status=='Received'"
+  },
+  {
+   "fieldname": "cb_perm1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "permission_letter",
+   "fieldtype": "Attach",
+   "label": "Permission Letter"
+  },
+  {
+   "fieldname": "sec_rejection",
+   "fieldtype": "Section Break",
+   "label": "Rejection / Reapply",
+   "depends_on": "eval:['Rejected','Reapplied'].includes(doc.permission_status)"
+  },
+  {
+   "fieldname": "rejection_reason",
+   "fieldtype": "Small Text",
+   "label": "Rejection Reason",
+   "mandatory_depends_on": "eval:doc.permission_status=='Rejected'"
+  },
+  {
+   "fieldname": "rejection_date",
+   "fieldtype": "Date",
+   "label": "Rejection Date",
+   "mandatory_depends_on": "eval:doc.permission_status=='Rejected'"
+  },
+  {
+   "fieldname": "cb_rej1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "reapplied_date",
+   "fieldtype": "Date",
+   "label": "Reapplied Date",
+   "mandatory_depends_on": "eval:doc.permission_status=='Reapplied'"
+  },
+  {
+   "fieldname": "attempt_no",
+   "fieldtype": "Int",
+   "label": "Attempt No",
+   "default": "1",
+   "read_only": 1
+  },
+  {
+   "fieldname": "sec_followup",
+   "fieldtype": "Section Break",
+   "label": "Follow-up"
+  },
+  {
+   "fieldname": "current_blocker",
+   "fieldtype": "Small Text",
+   "label": "Current Blocker"
+  },
+  {
+   "fieldname": "remark",
+   "fieldtype": "Small Text",
+   "label": "Remark"
+  },
+  {
+   "fieldname": "cb_fu1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "next_followup_date",
+   "fieldtype": "Date",
+   "label": "Next Follow-up Date",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "responsible_person",
+   "fieldtype": "Link",
+   "label": "Responsible Person",
+   "options": "User"
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "modified": "2026-10-29 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Underground",
+ "name": "ROW Application",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1
+  },
+  {
+   "role": "UG Admin",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1
+  },
+  {
+   "role": "UG Back Office",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1,
+   "write": 1,
+   "create": 1
+  },
+  {
+   "role": "UG Project Manager",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  },
+  {
+   "role": "UG Area Manager",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  },
+  {
+   "role": "UG Survey Team",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  },
+  {
+   "role": "UG ROW Team",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1,
+   "write": 1,
+   "create": 1
+  },
+  {
+   "role": "UG Material Team",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  },
+  {
+   "role": "UG Warehouse",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  },
+  {
+   "role": "UG Execution Team",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  },
+  {
+   "role": "UG Splicer",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  },
+  {
+   "role": "UG Vendor",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  },
+  {
+   "role": "UG ATC Manager",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  },
+  {
+   "role": "UG Billing",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  },
+  {
+   "role": "UG Management",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "search_fields": "ug_site,node_id,row_authority,application_no",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "row_authority",
+ "track_changes": 1
+}

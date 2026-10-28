@@ -1,0 +1,118 @@
+.ug-board {
+	padding: 16px;
+	border: 1px solid var(--border-color);
+	border-radius: var(--border-radius-lg, 12px);
+	background: var(--card-bg, var(--fg-color));
+	color: var(--text-color);
+}
+.ug-head {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	gap: 12px;
+	flex-wrap: wrap;
+	margin-bottom: 12px;
+}
+.ug-title {
+	font-size: var(--text-lg, 16px);
+	font-weight: 600;
+}
+.ug-sub {
+	color: var(--text-muted);
+	font-size: var(--text-sm, 12px);
+	margin-top: 2px;
+}
+.ug-tools {
+	display: flex;
+	gap: 8px;
+	align-items: center;
+}
+.ug-tools select {
+	width: 140px;
+}
+.ug-tabs {
+	display: flex;
+	gap: 4px;
+	border-bottom: 1px solid var(--border-color);
+	margin-bottom: 8px;
+	overflow-x: auto;
+}
+.ug-tab {
+	border: none;
+	background: none;
+	padding: 8px 12px;
+	font-size: var(--text-md, 13px);
+	color: var(--text-muted);
+	border-bottom: 2px solid transparent;
+	white-space: nowrap;
+	cursor: pointer;
+}
+.ug-tab.active {
+	color: var(--text-color);
+	font-weight: 600;
+	border-bottom-color: var(--primary, #2490ef);
+}
+.ug-count {
+	display: inline-block;
+	min-width: 20px;
+	padding: 0 6px;
+	margin-left: 6px;
+	border-radius: 10px;
+	background: var(--control-bg, #f3f3f3);
+	font-size: 11px;
+	text-align: center;
+}
+.ug-tab.ug-alert .ug-count {
+	background: var(--orange-100, #ffe8cc);
+	color: var(--orange-700, #b25b00);
+}
+.ug-body {
+	overflow-x: auto;
+}
+.ug-table {
+	width: 100%;
+	border-collapse: collapse;
+	font-size: var(--text-md, 13px);
+}
+.ug-table th {
+	text-align: left;
+	font-weight: 500;
+	color: var(--text-muted);
+	font-size: var(--text-sm, 12px);
+	padding: 6px 8px;
+	border-bottom: 1px solid var(--border-color);
+	white-space: nowrap;
+}
+.ug-table td {
+	padding: 8px;
+	border-bottom: 1px solid var(--border-color);
+	vertical-align: top;
+}
+.ug-table tr:last-child td {
+	border-bottom: none;
+}
+.ug-site {
+	font-weight: 600;
+	color: var(--text-color);
+	cursor: pointer;
+}
+.ug-site:hover {
+	text-decoration: underline;
+}
+.ug-muted {
+	color: var(--text-muted);
+	font-size: var(--text-sm, 12px);
+}
+.ug-actions {
+	display: flex;
+	gap: 6px;
+	white-space: nowrap;
+}
+.ug-remarks {
+	max-width: 280px;
+}
+.ug-empty {
+	padding: 24px 8px;
+	text-align: center;
+	color: var(--text-muted);
+}

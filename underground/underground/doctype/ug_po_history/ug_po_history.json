@@ -1,0 +1,66 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "creation": "2026-10-29 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "po_number",
+  "replaced_on",
+  "po_amount",
+  "civil_length",
+  "optical_length",
+  "lines"
+ ],
+ "fields": [
+  {
+   "fieldname": "po_number",
+   "fieldtype": "Data",
+   "label": "PO Number",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "replaced_on",
+   "fieldtype": "Date",
+   "label": "Replaced On",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "po_amount",
+   "fieldtype": "Currency",
+   "label": "PO Amount",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "civil_length",
+   "fieldtype": "Float",
+   "label": "Civil Length (m)",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "optical_length",
+   "fieldtype": "Float",
+   "label": "Optical Length (m)",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "lines",
+   "fieldtype": "Small Text",
+   "label": "Lines"
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-10-29 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Underground",
+ "name": "UG PO History",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

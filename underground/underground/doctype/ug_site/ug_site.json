@@ -1,0 +1,2900 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "autoname": "naming_series:",
+ "creation": "2026-10-29 00:00:00.000000",
+ "description": "One Airtel underground fiber site (node), from PO receipt to handover.",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "tab_po",
+  "po_copy",
+  "sec_status",
+  "naming_series",
+  "current_stage",
+  "final_ug_status",
+  "cb_status",
+  "site_ageing",
+  "stage_sla_end_day",
+  "stage_overdue",
+  "is_mobilization",
+  "pm_user",
+  "am_user",
+  "splicer_user",
+  "vendor_user",
+  "original_po_number",
+  "alert_150_sent",
+  "alert_180_sent",
+  "le_last_reminder",
+  "rr_last_reminder",
+  "sec_po",
+  "po_number",
+  "po_receipt_date",
+  "po_start_date",
+  "po_end_date",
+  "revised_po_date",
+  "cb_po1",
+  "work_type",
+  "ibd_included",
+  "sam_id",
+  "cb_po2",
+  "zone",
+  "district",
+  "airtel_spoc",
+  "mo_po_amount",
+  "sec_po_lines",
+  "po_lines",
+  "sec_po_totals",
+  "po_amount",
+  "cb_po3",
+  "po_civil_length",
+  "cb_po4",
+  "po_optical_length",
+  "sec_po_history",
+  "po_history",
+  "tab_kmz",
+  "sec_kmz",
+  "kmz_received",
+  "kmz_received_date",
+  "kmz_file",
+  "cb_kmz1",
+  "node_id",
+  "node_name",
+  "route",
+  "cb_kmz2",
+  "kmz_latitude",
+  "kmz_longitude",
+  "kmz_tapping_point",
+  "sec_kmz_route",
+  "kmz_route_length",
+  "kmz_existing_route_length",
+  "cb_kmz3",
+  "kmz_tapping_distance",
+  "sec_kmz_map",
+  "kmz_map_html",
+  "kmz_map",
+  "kmz_ageing",
+  "kmz_overdue",
+  "sec_team",
+  "area_manager",
+  "area_manager_by_system",
+  "project_manager",
+  "cb_team1",
+  "execution_spoc",
+  "team_vendor",
+  "cb_team2",
+  "am_approval_status",
+  "am_request_date",
+  "am_approved_on",
+  "am_closed_on",
+  "am_approval_remarks",
+  "sec_survey",
+  "survey_planned_date",
+  "survey_actual_date",
+  "survey_status",
+  "cb_survey1",
+  "survey_length",
+  "survey_tapping_point",
+  "cb_survey2",
+  "survey_latitude",
+  "survey_longitude",
+  "sec_row_auth",
+  "row_required",
+  "length_extension_recommended",
+  "recommended_length",
+  "row_authorities",
+  "sec_feasibility",
+  "site_feasibility",
+  "cb_feas1",
+  "non_feasibility_reason",
+  "non_feasibility_image",
+  "tab_sld",
+  "sec_sld",
+  "sld_prepared",
+  "sld_file",
+  "cb_sld1",
+  "airtel_sld_signature",
+  "rkbg_sld_signature",
+  "sec_survey_photos",
+  "survey_photos",
+  "sec_upload",
+  "sld_upload_date",
+  "cb_upl1",
+  "airtel_works_upload_status",
+  "sec_exceptions",
+  "length_extension_required",
+  "length_extension_status",
+  "length_extension_request_date",
+  "length_extension_revised_po",
+  "cb_exc1",
+  "rate_revision_status",
+  "rate_revision_request_date",
+  "cb_exc2",
+  "truncation_required",
+  "truncation_status",
+  "truncation_request_date",
+  "sec_followup",
+  "followups",
+  "tab_row",
+  "sec_cwip",
+  "cwip_id",
+  "cb_cwip1",
+  "cwip_mapping_status",
+  "sec_row",
+  "row_not_required_reason",
+  "cb_row1",
+  "row_count",
+  "row_overall_status",
+  "sec_job",
+  "job_id",
+  "cb_job1",
+  "job_id_mapping_status",
+  "cb_job2",
+  "job_id_approval_status",
+  "sec_vlc",
+  "vlc_request_date",
+  "cb_vlc1",
+  "vlc_code",
+  "cb_vlc2",
+  "vlc_status",
+  "tab_material",
+  "sec_material_summary",
+  "material_received_qty",
+  "cb_mat1",
+  "material_consumed_qty",
+  "cb_mat2",
+  "material_balance_qty",
+  "cb_mat3",
+  "material_dispatched",
+  "sec_site_material",
+  "site_materials",
+  "sec_cable_log",
+  "cable_logs",
+  "tab_execution",
+  "sec_release",
+  "execution_vendor",
+  "execution_vendor_contact",
+  "cb_rel1",
+  "execution_release_date",
+  "execution_start_date",
+  "cb_rel2",
+  "current_execution_stage",
+  "standard_trench_depth",
+  "sec_progress",
+  "td_scope_km",
+  "td_cumulative_km",
+  "td_balance_km",
+  "cb_prog1",
+  "cable_blowing_cumulative_km",
+  "cb_prog2",
+  "ibd_scope_m",
+  "ibd_done_m",
+  "sec_depth",
+  "depth_deviations",
+  "sec_testing",
+  "splicing_vendor",
+  "splicer",
+  "splicer_contact",
+  "splicer_approval_status",
+  "splicer_request_date",
+  "splicer_approved_on",
+  "splicer_closed_on",
+  "splicer_approval_remarks",
+  "splicing_status",
+  "cb_test1",
+  "otdr_status",
+  "otdr_report",
+  "cb_test2",
+  "fdms_status",
+  "final_photos_status",
+  "sec_final_photos",
+  "final_photos",
+  "sec_exec_docs",
+  "execution_documents_status",
+  "sec_blocker",
+  "current_blocker",
+  "cb_block1",
+  "next_action",
+  "tab_ff1",
+  "sec_ff1",
+  "ff1_submission_status",
+  "ff1_submission_date",
+  "cb_ff1",
+  "airtel_compliance_status",
+  "sec_pp",
+  "total_pp",
+  "open_pp",
+  "cb_pp1",
+  "field_pp",
+  "row_mail_doc_pp",
+  "cb_pp2",
+  "pp_closure_status",
+  "pp_closure_date",
+  "sec_atc",
+  "atc_status",
+  "cb_atc1",
+  "atc_date",
+  "tab_closure",
+  "sec_recon",
+  "reconciliation_status",
+  "cb_recon1",
+  "mrs_mail_sent_date",
+  "mrs_approval_date",
+  "sec_approvals",
+  "zonal_approval_status",
+  "cb_appr1",
+  "central_approval_status",
+  "sec_billing",
+  "billing_ready",
+  "billing_status",
+  "cb_bill1",
+  "invoice_number",
+  "invoice_date",
+  "invoice_amount",
+  "sec_handover",
+  "handover_status",
+  "cb_ho1",
+  "handover_date",
+  "sec_recovery",
+  "retention_amount",
+  "retention_due_date",
+  "cb_rec1",
+  "retention_recovery_status",
+  "retention_recovery_date",
+  "cb_rec2",
+  "sd_bg_outstanding",
+  "sd_bg_recovery_status",
+  "sd_bg_recovery_date",
+  "sec_summary",
+  "commitment_date",
+  "tentative_completion_date",
+  "cb_sum1",
+  "short_summary",
+  "final_remark"
+ ],
+ "fields": [
+  {
+   "fieldname": "tab_po",
+   "fieldtype": "Tab Break",
+   "label": "PO"
+  },
+  {
+   "fieldname": "po_copy",
+   "fieldtype": "Attach",
+   "label": "Attach PO (PDF)",
+   "bold": 1,
+   "description": "Attach Airtel's PO PDF first: PO number, dates, node ID and PO lines fill in from it.",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "sec_status",
+   "fieldtype": "Section Break",
+   "label": "Status"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "options": "UG-.YYYY.-",
+   "default": "UG-.YYYY.-",
+   "hidden": 1,
+   "reqd": 1,
+   "permlevel": 0
+  },
+  {
+   "fieldname": "current_stage",
+   "fieldtype": "Select",
+   "label": "Current Stage",
+   "read_only": 1,
+   "no_copy": 1,
+   "options": "1 - PO Receipt\n2 - KMZ and Team\n3 - Survey and Feasibility\n4 - SLD and Exceptions\n5 - CWIP, ROW, Job ID, VLC\n6 - Material\n7 - Execution\n8 - FF1, PP, ATC\n9 - Closure and Billing\nCompleted\nTruncated\nMO - Billing Only",
+   "in_list_view": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "final_ug_status",
+   "fieldtype": "Select",
+   "label": "Final UG Status",
+   "read_only": 1,
+   "no_copy": 1,
+   "options": "Active\nCompleted\nTruncated\nBilling Only",
+   "default": "Active",
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "cb_status",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "site_ageing",
+   "fieldtype": "Int",
+   "label": "Site Ageing (days)",
+   "read_only": 1,
+   "no_copy": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "stage_sla_end_day",
+   "fieldtype": "Int",
+   "label": "Stage SLA End Day",
+   "read_only": 1,
+   "no_copy": 1
+  },
+  {
+   "fieldname": "stage_overdue",
+   "fieldtype": "Check",
+   "label": "Stage Overdue",
+   "read_only": 1,
+   "no_copy": 1
+  },
+  {
+   "fieldname": "is_mobilization",
+   "fieldtype": "Check",
+   "label": "Is Mobilization",
+   "fetch_from": "work_type.is_mobilization",
+   "read_only": 1,
+   "hidden": 1
+  },
+  {
+   "fieldname": "pm_user",
+   "fieldtype": "Link",
+   "label": "PM User",
+   "options": "User",
+   "fetch_from": "project_manager.user",
+   "read_only": 1,
+   "hidden": 1
+  },
+  {
+   "fieldname": "am_user",
+   "fieldtype": "Link",
+   "label": "Area Manager User",
+   "options": "User",
+   "fetch_from": "area_manager.user",
+   "read_only": 1,
+   "hidden": 1
+  },
+  {
+   "fieldname": "splicer_user",
+   "fieldtype": "Link",
+   "label": "Splicer User",
+   "options": "User",
+   "fetch_from": "splicer.user",
+   "read_only": 1,
+   "hidden": 1
+  },
+  {
+   "fieldname": "vendor_user",
+   "fieldtype": "Link",
+   "label": "Splicing Vendor User",
+   "options": "User",
+   "fetch_from": "splicing_vendor.user",
+   "read_only": 1,
+   "hidden": 1
+  },
+  {
+   "fieldname": "original_po_number",
+   "fieldtype": "Data",
+   "label": "Original PO Number",
+   "read_only": 1,
+   "no_copy": 1,
+   "hidden": 1
+  },
+  {
+   "fieldname": "alert_150_sent",
+   "fieldtype": "Check",
+   "label": "150 Day Alert Sent",
+   "read_only": 1,
+   "no_copy": 1,
+   "hidden": 1
+  },
+  {
+   "fieldname": "alert_180_sent",
+   "fieldtype": "Check",
+   "label": "180 Day Alert Sent",
+   "read_only": 1,
+   "no_copy": 1,
+   "hidden": 1
+  },
+  {
+   "fieldname": "le_last_reminder",
+   "fieldtype": "Date",
+   "label": "Length Extension Last Reminder",
+   "read_only": 1,
+   "no_copy": 1,
+   "hidden": 1
+  },
+  {
+   "fieldname": "rr_last_reminder",
+   "fieldtype": "Date",
+   "label": "Rate Revision Last Reminder",
+   "read_only": 1,
+   "no_copy": 1,
+   "hidden": 1
+  },
+  {
+   "fieldname": "sec_po",
+   "fieldtype": "Section Break",
+   "label": "Purchase Order"
+  },
+  {
+   "fieldname": "po_number",
+   "fieldtype": "Data",
+   "label": "PO Number",
+   "reqd": 1,
+   "in_standard_filter": 1,
+   "in_global_search": 1,
+   "description": "Full Airtel PO number, e.g. TNL-FF-Maharashtra/PUR/10012674. A revised PO overwrites it; the old one moves to PO History.",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "po_receipt_date",
+   "fieldtype": "Date",
+   "label": "PO Receipt Date (Day 0)",
+   "reqd": 1,
+   "permlevel": 1
+  },
+  {
+   "fieldname": "po_start_date",
+   "fieldtype": "Date",
+   "label": "PO Start Date",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "po_end_date",
+   "fieldtype": "Date",
+   "label": "PO End Date",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "revised_po_date",
+   "fieldtype": "Date",
+   "label": "Revised PO Date",
+   "depends_on": "eval:doc.original_po_number && doc.po_number!=doc.original_po_number",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "cb_po1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "work_type",
+   "fieldtype": "Link",
+   "label": "Work Type",
+   "options": "UG Work Type",
+   "reqd": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "permlevel": 1
+  },
+  {
+   "fieldname": "ibd_included",
+   "fieldtype": "Check",
+   "label": "IBD Included",
+   "depends_on": "eval:doc.work_type=='LM'",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "sam_id",
+   "fieldtype": "Data",
+   "label": "SAM ID",
+   "in_global_search": 1,
+   "description": "Airtel reference, e.g. SAM2046 (not the Node ID).",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "cb_po2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "zone",
+   "fieldtype": "Link",
+   "label": "Zone / Area",
+   "options": "UG Zone",
+   "in_standard_filter": 1,
+   "permlevel": 1
+  },
+  {
+   "fieldname": "district",
+   "fieldtype": "Link",
+   "label": "District",
+   "options": "UG District",
+   "in_standard_filter": 1,
+   "permlevel": 1
+  },
+  {
+   "fieldname": "airtel_spoc",
+   "fieldtype": "Link",
+   "label": "Airtel SPOC",
+   "options": "Airtel SPOC",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "mo_po_amount",
+   "fieldtype": "Currency",
+   "label": "MO PO Amount",
+   "depends_on": "eval:doc.is_mobilization || doc.mo_po_amount",
+   "description": "Filled from Mobilization PO lines when there are any.",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "sec_po_lines",
+   "fieldtype": "Section Break",
+   "label": "PO Lines"
+  },
+  {
+   "fieldname": "po_lines",
+   "fieldtype": "Table",
+   "label": "PO Lines",
+   "options": "UG PO Line",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "sec_po_totals",
+   "fieldtype": "Section Break",
+   "label": "PO Totals"
+  },
+  {
+   "fieldname": "po_amount",
+   "fieldtype": "Currency",
+   "label": "PO Amount",
+   "read_only": 1,
+   "no_copy": 1
+  },
+  {
+   "fieldname": "cb_po3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "po_civil_length",
+   "fieldtype": "Float",
+   "label": "PO Civil Length (m)",
+   "read_only": 1,
+   "no_copy": 1
+  },
+  {
+   "fieldname": "cb_po4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "po_optical_length",
+   "fieldtype": "Float",
+   "label": "PO Optical Length (m)",
+   "read_only": 1,
+   "no_copy": 1
+  },
+  {
+   "fieldname": "sec_po_history",
+   "fieldtype": "Section Break",
+   "label": "PO History",
+   "collapsible": 1
+  },
+  {
+   "fieldname": "po_history",
+   "fieldtype": "Table",
+   "label": "PO History",
+   "options": "UG PO History",
+   "read_only": 1,
+   "no_copy": 1,
+   "permlevel": 0
+  },
+  {
+   "fieldname": "tab_kmz",
+   "fieldtype": "Tab Break",
+   "label": "KMZ & Survey",
+   "depends_on": "eval:!doc.is_mobilization"
+  },
+  {
+   "fieldname": "sec_kmz",
+   "fieldtype": "Section Break",
+   "label": "KMZ"
+  },
+  {
+   "fieldname": "kmz_received",
+   "fieldtype": "Check",
+   "label": "KMZ Received",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "kmz_received_date",
+   "fieldtype": "Date",
+   "label": "KMZ Received Date",
+   "depends_on": "kmz_received",
+   "mandatory_depends_on": "kmz_received",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "kmz_file",
+   "fieldtype": "Attach",
+   "label": "KMZ File",
+   "description": "Attach the KMZ from Airtel: location, tapping point and route length fill themselves.",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "cb_kmz1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "node_id",
+   "fieldtype": "Data",
+   "label": "Node ID",
+   "unique": 1,
+   "in_list_view": 1,
+   "in_global_search": 1,
+   "no_copy": 1,
+   "bold": 1,
+   "permlevel": 1
+  },
+  {
+   "fieldname": "node_name",
+   "fieldtype": "Data",
+   "label": "Node Name",
+   "in_global_search": 1,
+   "permlevel": 1
+  },
+  {
+   "fieldname": "route",
+   "fieldtype": "Link",
+   "label": "Route Name",
+   "options": "UG Route",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "cb_kmz2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "kmz_latitude",
+   "fieldtype": "Float",
+   "label": "KMZ Latitude",
+   "precision": "6",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "kmz_longitude",
+   "fieldtype": "Float",
+   "label": "KMZ Longitude",
+   "precision": "6",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "kmz_tapping_point",
+   "fieldtype": "Data",
+   "label": "KMZ Tapping Point",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "sec_kmz_route",
+   "fieldtype": "Section Break",
+   "label": "KMZ Route"
+  },
+  {
+   "fieldname": "kmz_route_length",
+   "fieldtype": "Float",
+   "label": "KMZ Proposed Route (m)",
+   "precision": "1",
+   "description": "Length of the proposed route drawn in the KMZ. Used for the length check until the survey length is entered.",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "kmz_existing_route_length",
+   "fieldtype": "Float",
+   "label": "KMZ Existing Route (m)",
+   "precision": "1",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "cb_kmz3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "kmz_tapping_distance",
+   "fieldtype": "Float",
+   "label": "Site to Tapping Point, straight line (m)",
+   "precision": "1",
+   "read_only": 1
+  },
+  {
+   "fieldname": "sec_kmz_map",
+   "fieldtype": "Section Break",
+   "label": "Route Map"
+  },
+  {
+   "fieldname": "kmz_map_html",
+   "fieldtype": "HTML",
+   "label": "Route Map",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "kmz_map",
+   "fieldtype": "Long Text",
+   "label": "KMZ Route (GeoJSON)",
+   "read_only": 1,
+   "hidden": 1,
+   "no_copy": 1
+  },
+  {
+   "fieldname": "kmz_ageing",
+   "fieldtype": "Int",
+   "label": "KMZ Ageing (days)",
+   "read_only": 1,
+   "no_copy": 1
+  },
+  {
+   "fieldname": "kmz_overdue",
+   "fieldtype": "Check",
+   "label": "KMZ Overdue",
+   "read_only": 1,
+   "no_copy": 1
+  },
+  {
+   "fieldname": "sec_team",
+   "fieldtype": "Section Break",
+   "label": "Team"
+  },
+  {
+   "fieldname": "area_manager",
+   "fieldtype": "Link",
+   "label": "Area Manager",
+   "options": "UG Employee",
+   "description": "Set by the system from the site location (survey, else KMZ) and the area boundaries. You can change it; only Area Managers of the site's area are offered.",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "area_manager_by_system",
+   "fieldtype": "Check",
+   "label": "Area Manager Set by System",
+   "read_only": 1,
+   "no_copy": 1
+  },
+  {
+   "fieldname": "project_manager",
+   "fieldtype": "Link",
+   "label": "Project Manager / RKBG SPOC",
+   "options": "UG Employee",
+   "in_standard_filter": 1,
+   "permlevel": 1
+  },
+  {
+   "fieldname": "cb_team1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "execution_spoc",
+   "fieldtype": "Link",
+   "label": "Execution SPOC",
+   "options": "UG Employee",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "team_vendor",
+   "fieldtype": "Link",
+   "label": "Survey Team / Vendor",
+   "options": "UG Vendor",
+   "permlevel": 2
+  },
+  {
+   "fieldname": "cb_team2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "am_approval_status",
+   "fieldtype": "Select",
+   "label": "Area Manager Assignment",
+   "read_only": 1,
+   "no_copy": 1,
+   "options": "\nPending\nIn Progress\nRejected\nClosed",
+   "in_standard_filter": 1,
+   "description": "Pending until the Area Manager approves (In Progress) or rejects; they close it when done. Managed from the Assignments board on the Underground workspace."
+  },
+  {
+   "fieldname": "am_request_date",
+   "fieldtype": "Date",
+   "label": "Assigned On",
+   "read_only": 1,
+   "no_copy": 1
+  },
+  {
+   "fieldname": "am_approved_on",
+   "fieldtype": "Date",
+   "label": "Approved / Rejected On",
+   "read_only": 1,
+   "no_copy": 1
+  },
+  {
+   "fieldname": "am_closed_on",
+   "fieldtype": "Date",
+   "label": "Closed On",
+   "read_only": 1,
+   "no_copy": 1
+  },
+  {
+   "fieldname": "am_approval_remarks",
+   "fieldtype": "Small Text",
+   "label": "Area Manager Remarks",
+   "read_only": 1,
+   "no_copy": 1
+  },
+  {
+   "fieldname": "sec_survey",
+   "fieldtype": "Section Break",
+   "label": "Survey (with SLD, one visit)"
+  },
+  {
+   "fieldname": "survey_planned_date",
+   "fieldtype": "Date",
+   "label": "Survey Planned Date",
+   "description": "Joint date fixed with the Airtel engineer.",
+   "permlevel": 2
+  },
+  {
+   "fieldname": "survey_actual_date",
+   "fieldtype": "Date",
+   "label": "Survey Actual Date",
+   "permlevel": 3
+  },
+  {
+   "fieldname": "survey_status",
+   "fieldtype": "Select",
+   "label": "Survey Status",
+   "options": "Pending\nPlanned\nIn Progress\nCompleted\nHold",
+   "default": "Pending",
+   "permlevel": 3
+  },
+  {
+   "fieldname": "cb_survey1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "survey_length",
+   "fieldtype": "Float",
+   "label": "Survey Length (m)",
+   "description": "Actual route length.",
+   "permlevel": 3
+  },
+  {
+   "fieldname": "survey_tapping_point",
+   "fieldtype": "Data",
+   "label": "Survey Tapping Point",
+   "permlevel": 3
+  },
+  {
+   "fieldname": "cb_survey2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "survey_latitude",
+   "fieldtype": "Float",
+   "label": "Survey Latitude",
+   "precision": "6",
+   "permlevel": 3
+  },
+  {
+   "fieldname": "survey_longitude",
+   "fieldtype": "Float",
+   "label": "Survey Longitude",
+   "precision": "6",
+   "permlevel": 3
+  },
+  {
+   "fieldname": "sec_row_auth",
+   "fieldtype": "Section Break",
+   "label": "ROW Authorities on the Route"
+  },
+  {
+   "fieldname": "row_required",
+   "fieldtype": "Select",
+   "label": "ROW Required",
+   "options": "\nYes\nNo",
+   "permlevel": 3
+  },
+  {
+   "fieldname": "length_extension_recommended",
+   "fieldtype": "Check",
+   "label": "Length Extension Recommended",
+   "permlevel": 3
+  },
+  {
+   "fieldname": "recommended_length",
+   "fieldtype": "Float",
+   "label": "Recommended Length (m)",
+   "depends_on": "length_extension_recommended",
+   "permlevel": 3
+  },
+  {
+   "fieldname": "row_authorities",
+   "fieldtype": "Table",
+   "label": "ROW Authorities Identified",
+   "options": "UG Site ROW Authority",
+   "depends_on": "eval:doc.row_required=='Yes'",
+   "description": "Each authority becomes its own ROW Application (button: Create ROW Applications).",
+   "permlevel": 3
+  },
+  {
+   "fieldname": "sec_feasibility",
+   "fieldtype": "Section Break",
+   "label": "Feasibility"
+  },
+  {
+   "fieldname": "site_feasibility",
+   "fieldtype": "Select",
+   "label": "Site Feasibility",
+   "options": "\nFeasible\nNot Feasible",
+   "in_standard_filter": 1,
+   "permlevel": 1
+  },
+  {
+   "fieldname": "cb_feas1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "non_feasibility_reason",
+   "fieldtype": "Small Text",
+   "label": "Non-Feasibility Reason",
+   "depends_on": "eval:doc.site_feasibility=='Not Feasible'",
+   "mandatory_depends_on": "eval:doc.site_feasibility=='Not Feasible'",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "non_feasibility_image",
+   "fieldtype": "Attach Image",
+   "label": "Non-Feasibility Site Image",
+   "depends_on": "eval:doc.site_feasibility=='Not Feasible'",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "tab_sld",
+   "fieldtype": "Tab Break",
+   "label": "SLD & Exceptions",
+   "depends_on": "eval:!doc.is_mobilization"
+  },
+  {
+   "fieldname": "sec_sld",
+   "fieldtype": "Section Break",
+   "label": "SLD"
+  },
+  {
+   "fieldname": "sld_prepared",
+   "fieldtype": "Check",
+   "label": "SLD Prepared",
+   "permlevel": 3
+  },
+  {
+   "fieldname": "sld_file",
+   "fieldtype": "Attach",
+   "label": "SLD",
+   "depends_on": "sld_prepared",
+   "permlevel": 3
+  },
+  {
+   "fieldname": "cb_sld1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "airtel_sld_signature",
+   "fieldtype": "Select",
+   "label": "Airtel Signature on SLD",
+   "options": "Pending\nReceived",
+   "default": "Pending",
+   "permlevel": 3
+  },
+  {
+   "fieldname": "rkbg_sld_signature",
+   "fieldtype": "Select",
+   "label": "RKBG Signature on SLD",
+   "options": "Pending\nReceived",
+   "default": "Pending",
+   "permlevel": 3
+  },
+  {
+   "fieldname": "sec_survey_photos",
+   "fieldtype": "Section Break",
+   "label": "Geo-tagged Survey Photos",
+   "collapsible": 1
+  },
+  {
+   "fieldname": "survey_photos",
+   "fieldtype": "Table",
+   "label": "Survey Photos",
+   "options": "UG Photo",
+   "permlevel": 3
+  },
+  {
+   "fieldname": "sec_upload",
+   "fieldtype": "Section Break",
+   "label": "Airtel Works Upload"
+  },
+  {
+   "fieldname": "sld_upload_date",
+   "fieldtype": "Date",
+   "label": "SLD Handover / Upload Date",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "cb_upl1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "airtel_works_upload_status",
+   "fieldtype": "Select",
+   "label": "Airtel Works Upload Status",
+   "options": "Pending\nUploaded\nRework\nAccepted",
+   "default": "Pending",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "sec_exceptions",
+   "fieldtype": "Section Break",
+   "label": "Exceptions"
+  },
+  {
+   "fieldname": "length_extension_required",
+   "fieldtype": "Check",
+   "label": "Length Extension Required",
+   "read_only": 1,
+   "no_copy": 1,
+   "description": "Ticked by the system when Survey Length (or, before the survey, the KMZ route) > PO civil length."
+  },
+  {
+   "fieldname": "length_extension_status",
+   "fieldtype": "Select",
+   "label": "Length Extension Status",
+   "options": "Not Required\nRequested\nApproved\nRejected",
+   "default": "Not Required",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "length_extension_request_date",
+   "fieldtype": "Date",
+   "label": "Length Extension Request Date",
+   "depends_on": "eval:doc.length_extension_status!='Not Required'",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "length_extension_revised_po",
+   "fieldtype": "Data",
+   "label": "Revised PO No (Length Extension)",
+   "depends_on": "eval:doc.length_extension_status=='Approved'",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "cb_exc1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "rate_revision_status",
+   "fieldtype": "Select",
+   "label": "Rate Revision Status",
+   "options": "Not Required\nRequested\nApproved\nRejected",
+   "default": "Not Required",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "rate_revision_request_date",
+   "fieldtype": "Date",
+   "label": "Rate Revision Request Date",
+   "depends_on": "eval:doc.rate_revision_status!='Not Required'",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "cb_exc2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "truncation_required",
+   "fieldtype": "Check",
+   "label": "Truncation Required",
+   "read_only": 1,
+   "no_copy": 1
+  },
+  {
+   "fieldname": "truncation_status",
+   "fieldtype": "Select",
+   "label": "Truncation Status",
+   "options": "Not Required\nRequested\nApproved\nClosed",
+   "default": "Not Required",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "truncation_request_date",
+   "fieldtype": "Date",
+   "label": "Truncation Request Date",
+   "depends_on": "eval:doc.truncation_status!='Not Required'",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "sec_followup",
+   "fieldtype": "Section Break",
+   "label": "Follow-up Log with Airtel",
+   "collapsible": 1
+  },
+  {
+   "fieldname": "followups",
+   "fieldtype": "Table",
+   "label": "Follow-ups",
+   "options": "UG Followup Log",
+   "permlevel": 8
+  },
+  {
+   "fieldname": "tab_row",
+   "fieldtype": "Tab Break",
+   "label": "CWIP / ROW / Job ID / VLC",
+   "depends_on": "eval:!doc.is_mobilization"
+  },
+  {
+   "fieldname": "sec_cwip",
+   "fieldtype": "Section Break",
+   "label": "CWIP"
+  },
+  {
+   "fieldname": "cwip_id",
+   "fieldtype": "Data",
+   "label": "CWIP ID",
+   "in_global_search": 1,
+   "no_copy": 1,
+   "permlevel": 1
+  },
+  {
+   "fieldname": "cb_cwip1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "cwip_mapping_status",
+   "fieldtype": "Select",
+   "label": "CWIP Mapping Status",
+   "options": "Pending\nCorrect\nIncorrect\nFollow-up",
+   "default": "Pending",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "sec_row",
+   "fieldtype": "Section Break",
+   "label": "ROW"
+  },
+  {
+   "fieldname": "row_not_required_reason",
+   "fieldtype": "Small Text",
+   "label": "If ROW Not Required — Reason",
+   "depends_on": "eval:doc.row_required=='No'",
+   "mandatory_depends_on": "eval:doc.row_required=='No'",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "cb_row1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "row_count",
+   "fieldtype": "Int",
+   "label": "ROW Count",
+   "read_only": 1,
+   "no_copy": 1
+  },
+  {
+   "fieldname": "row_overall_status",
+   "fieldtype": "Select",
+   "label": "ROW Overall Status",
+   "read_only": 1,
+   "no_copy": 1,
+   "options": "\nNot Required\nPending\nAll Received\nRejected",
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "sec_job",
+   "fieldtype": "Section Break",
+   "label": "Job ID"
+  },
+  {
+   "fieldname": "job_id",
+   "fieldtype": "Data",
+   "label": "Job ID",
+   "in_global_search": 1,
+   "no_copy": 1,
+   "permlevel": 1
+  },
+  {
+   "fieldname": "cb_job1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "job_id_mapping_status",
+   "fieldtype": "Select",
+   "label": "Job ID Mapping Status",
+   "options": "Pending\nCorrect\nIncorrect",
+   "default": "Pending",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "cb_job2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "job_id_approval_status",
+   "fieldtype": "Select",
+   "label": "Job ID Approval Status",
+   "options": "Pending\nApproved",
+   "default": "Pending",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "sec_vlc",
+   "fieldtype": "Section Break",
+   "label": "VLC"
+  },
+  {
+   "fieldname": "vlc_request_date",
+   "fieldtype": "Date",
+   "label": "VLC Request Date",
+   "permlevel": 4
+  },
+  {
+   "fieldname": "cb_vlc1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "vlc_code",
+   "fieldtype": "Data",
+   "label": "VLC Code",
+   "no_copy": 1,
+   "in_global_search": 1,
+   "permlevel": 4
+  },
+  {
+   "fieldname": "cb_vlc2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "vlc_status",
+   "fieldtype": "Select",
+   "label": "VLC Status",
+   "options": "Pending\nReceived\nRework",
+   "default": "Pending",
+   "permlevel": 4
+  },
+  {
+   "fieldname": "tab_material",
+   "fieldtype": "Tab Break",
+   "label": "Material",
+   "depends_on": "eval:!doc.is_mobilization"
+  },
+  {
+   "fieldname": "sec_material_summary",
+   "fieldtype": "Section Break",
+   "label": "Material Summary"
+  },
+  {
+   "fieldname": "material_received_qty",
+   "fieldtype": "Float",
+   "label": "Total Received",
+   "read_only": 1,
+   "no_copy": 1,
+   "bold": 1
+  },
+  {
+   "fieldname": "cb_mat1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "material_consumed_qty",
+   "fieldtype": "Float",
+   "label": "Total Consumed",
+   "read_only": 1,
+   "no_copy": 1,
+   "bold": 1
+  },
+  {
+   "fieldname": "cb_mat2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "material_balance_qty",
+   "fieldtype": "Float",
+   "label": "Balance at Site",
+   "read_only": 1,
+   "no_copy": 1,
+   "bold": 1
+  },
+  {
+   "fieldname": "cb_mat3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "material_dispatched",
+   "fieldtype": "Check",
+   "label": "Material Dispatched",
+   "read_only": 1,
+   "no_copy": 1
+  },
+  {
+   "fieldname": "sec_site_material",
+   "fieldtype": "Section Break",
+   "label": "Material by Item",
+   "description": "Received and Dispatched fill in from Material Orders and Dispatches. Enter only the Consumed quantity."
+  },
+  {
+   "fieldname": "site_materials",
+   "fieldtype": "Table",
+   "label": "Materials",
+   "options": "UG Site Material",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "sec_cable_log",
+   "fieldtype": "Section Break",
+   "label": "Fibre Cable Laid (Cable ID and Meter Readings)",
+   "description": "One row per cable drum used on the site: the meter marking printed on the cable at the start and at the end of the stretch laid. The length laid becomes the Consumed quantity of that cable."
+  },
+  {
+   "fieldname": "cable_logs",
+   "fieldtype": "Table",
+   "label": "Cable Laid",
+   "options": "UG Site Cable",
+   "permlevel": 5
+  },
+  {
+   "fieldname": "tab_execution",
+   "fieldtype": "Tab Break",
+   "label": "Execution",
+   "depends_on": "eval:!doc.is_mobilization"
+  },
+  {
+   "fieldname": "sec_release",
+   "fieldtype": "Section Break",
+   "label": "Release"
+  },
+  {
+   "fieldname": "execution_vendor",
+   "fieldtype": "Link",
+   "label": "Execution Vendor / Team",
+   "options": "UG Vendor",
+   "permlevel": 2
+  },
+  {
+   "fieldname": "execution_vendor_contact",
+   "fieldtype": "Data",
+   "label": "Vendor Contact No",
+   "fetch_from": "execution_vendor.contact_no",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cb_rel1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "execution_release_date",
+   "fieldtype": "Date",
+   "label": "Execution Release Date",
+   "description": "Allowed only when ROW is all received (or not required), Job ID is mapped, material is dispatched and a team is assigned.",
+   "permlevel": 2
+  },
+  {
+   "fieldname": "execution_start_date",
+   "fieldtype": "Date",
+   "label": "Execution Start Date",
+   "permlevel": 5
+  },
+  {
+   "fieldname": "cb_rel2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "current_execution_stage",
+   "fieldtype": "Select",
+   "label": "Current Execution Stage",
+   "read_only": 1,
+   "no_copy": 1,
+   "options": "\nT&D\nCable Blowing\nSplicing\nTesting\nFF1\nPP\nATC"
+  },
+  {
+   "fieldname": "standard_trench_depth",
+   "fieldtype": "Float",
+   "label": "Standard Trench Depth (m)",
+   "read_only": 1,
+   "no_copy": 1
+  },
+  {
+   "fieldname": "sec_progress",
+   "fieldtype": "Section Break",
+   "label": "Progress (from Daily Progress Reports)"
+  },
+  {
+   "fieldname": "td_scope_km",
+   "fieldtype": "Float",
+   "label": "T&D Scope Total (km)",
+   "precision": "3",
+   "description": "Defaults to PO civil length.",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "td_cumulative_km",
+   "fieldtype": "Float",
+   "label": "T&D Cumulative (km)",
+   "read_only": 1,
+   "no_copy": 1,
+   "precision": "3"
+  },
+  {
+   "fieldname": "td_balance_km",
+   "fieldtype": "Float",
+   "label": "T&D Balance (km)",
+   "read_only": 1,
+   "no_copy": 1,
+   "precision": "3"
+  },
+  {
+   "fieldname": "cb_prog1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "cable_blowing_cumulative_km",
+   "fieldtype": "Float",
+   "label": "Cable Blowing Cumulative (km)",
+   "read_only": 1,
+   "no_copy": 1,
+   "precision": "3"
+  },
+  {
+   "fieldname": "cb_prog2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "ibd_scope_m",
+   "fieldtype": "Float",
+   "label": "IBD / FTTB Scope (m)",
+   "depends_on": "eval:doc.ibd_included || ['IBD','FTTB'].includes(doc.work_type)",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "ibd_done_m",
+   "fieldtype": "Float",
+   "label": "IBD / FTTB Done (m)",
+   "read_only": 1,
+   "no_copy": 1,
+   "depends_on": "eval:doc.ibd_included || ['IBD','FTTB'].includes(doc.work_type)"
+  },
+  {
+   "fieldname": "sec_depth",
+   "fieldtype": "Section Break",
+   "label": "Depth Deviations",
+   "description": "One row per stretch where rock or hard strata stops the standard depth."
+  },
+  {
+   "fieldname": "depth_deviations",
+   "fieldtype": "Table",
+   "label": "Depth Deviations",
+   "options": "UG Depth Deviation",
+   "permlevel": 5
+  },
+  {
+   "fieldname": "sec_testing",
+   "fieldtype": "Section Break",
+   "label": "Splicing and Testing"
+  },
+  {
+   "fieldname": "splicing_vendor",
+   "fieldtype": "Link",
+   "label": "Splicing Vendor",
+   "options": "UG Vendor",
+   "description": "The vendor responsible for splicing; their login assigns one of their splicers. Defaults to the Execution Vendor.",
+   "permlevel": 2
+  },
+  {
+   "fieldname": "splicer",
+   "fieldtype": "Link",
+   "label": "Splicer",
+   "options": "UG Splicer",
+   "description": "Assigned by the splicing vendor (button Splicer → Assign Splicer). The splicer's login then sees this site and can update splicing and OTDR.",
+   "permlevel": 2
+  },
+  {
+   "fieldname": "splicer_contact",
+   "fieldtype": "Data",
+   "label": "Splicer Mobile No",
+   "fetch_from": "splicer.mobile_no",
+   "read_only": 1
+  },
+  {
+   "fieldname": "splicer_approval_status",
+   "fieldtype": "Select",
+   "label": "Splicer Assignment",
+   "read_only": 1,
+   "no_copy": 1,
+   "options": "\nPending\nIn Progress\nRejected\nClosed",
+   "description": "Pending until the splicer approves (In Progress) or rejects; they close it once splicing is completed."
+  },
+  {
+   "fieldname": "splicer_request_date",
+   "fieldtype": "Date",
+   "label": "Splicer Assigned On",
+   "read_only": 1,
+   "no_copy": 1
+  },
+  {
+   "fieldname": "splicer_approved_on",
+   "fieldtype": "Date",
+   "label": "Splicer Approved / Rejected On",
+   "read_only": 1,
+   "no_copy": 1
+  },
+  {
+   "fieldname": "splicer_closed_on",
+   "fieldtype": "Date",
+   "label": "Splicer Closed On",
+   "read_only": 1,
+   "no_copy": 1
+  },
+  {
+   "fieldname": "splicer_approval_remarks",
+   "fieldtype": "Small Text",
+   "label": "Splicer Remarks",
+   "read_only": 1,
+   "no_copy": 1
+  },
+  {
+   "fieldname": "splicing_status",
+   "fieldtype": "Select",
+   "label": "Splicing Status",
+   "options": "Pending\nIn Progress\nCompleted",
+   "default": "Pending",
+   "permlevel": 9
+  },
+  {
+   "fieldname": "cb_test1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "otdr_status",
+   "fieldtype": "Select",
+   "label": "OTDR / Testing Status",
+   "options": "Pending\nTest Done\nRework\nPassed",
+   "default": "Pending",
+   "permlevel": 9
+  },
+  {
+   "fieldname": "otdr_report",
+   "fieldtype": "Attach",
+   "label": "OTDR Machine Report",
+   "permlevel": 9
+  },
+  {
+   "fieldname": "cb_test2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "fdms_status",
+   "fieldtype": "Select",
+   "label": "FDMS Status",
+   "options": "NA\nPending\nCompleted\nCleared\nRework",
+   "default": "Pending",
+   "permlevel": 5
+  },
+  {
+   "fieldname": "final_photos_status",
+   "fieldtype": "Select",
+   "label": "Final Geo-tagged Photos",
+   "options": "Pending\nReceived",
+   "default": "Pending",
+   "permlevel": 5
+  },
+  {
+   "fieldname": "sec_final_photos",
+   "fieldtype": "Section Break",
+   "label": "Final Geo-tagged Photos",
+   "collapsible": 1
+  },
+  {
+   "fieldname": "final_photos",
+   "fieldtype": "Table",
+   "label": "Final Photos",
+   "options": "UG Photo",
+   "permlevel": 5
+  },
+  {
+   "fieldname": "sec_exec_docs",
+   "fieldtype": "Section Break",
+   "label": "Documents"
+  },
+  {
+   "fieldname": "execution_documents_status",
+   "fieldtype": "Select",
+   "label": "Execution Documents Status",
+   "options": "Pending\nComplete",
+   "default": "Pending",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "sec_blocker",
+   "fieldtype": "Section Break",
+   "label": "Blocker and Next Action"
+  },
+  {
+   "fieldname": "current_blocker",
+   "fieldtype": "Small Text",
+   "label": "Current Blocker",
+   "permlevel": 8
+  },
+  {
+   "fieldname": "cb_block1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "next_action",
+   "fieldtype": "Small Text",
+   "label": "Next Action / Plan",
+   "permlevel": 8
+  },
+  {
+   "fieldname": "tab_ff1",
+   "fieldtype": "Tab Break",
+   "label": "FF1 / PP / ATC",
+   "depends_on": "eval:!doc.is_mobilization"
+  },
+  {
+   "fieldname": "sec_ff1",
+   "fieldtype": "Section Break",
+   "label": "FF1 and Compliance"
+  },
+  {
+   "fieldname": "ff1_submission_status",
+   "fieldtype": "Select",
+   "label": "FF1 Submission Status",
+   "options": "Pending\nSubmitted\nRework\nAccepted",
+   "default": "Pending",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "ff1_submission_date",
+   "fieldtype": "Date",
+   "label": "FF1 Submission Date",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "cb_ff1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "airtel_compliance_status",
+   "fieldtype": "Select",
+   "label": "Airtel Compliance Status",
+   "options": "Pending\nCompliant\nPP Raised",
+   "default": "Pending",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "sec_pp",
+   "fieldtype": "Section Break",
+   "label": "Punch Points (from Punch Point records)"
+  },
+  {
+   "fieldname": "total_pp",
+   "fieldtype": "Int",
+   "label": "Total PP",
+   "read_only": 1,
+   "no_copy": 1
+  },
+  {
+   "fieldname": "open_pp",
+   "fieldtype": "Int",
+   "label": "Open PP",
+   "read_only": 1,
+   "no_copy": 1
+  },
+  {
+   "fieldname": "cb_pp1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "field_pp",
+   "fieldtype": "Int",
+   "label": "Field PP",
+   "read_only": 1,
+   "no_copy": 1
+  },
+  {
+   "fieldname": "row_mail_doc_pp",
+   "fieldtype": "Int",
+   "label": "ROW / Mail / Document PP",
+   "read_only": 1,
+   "no_copy": 1
+  },
+  {
+   "fieldname": "cb_pp2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "pp_closure_status",
+   "fieldtype": "Select",
+   "label": "PP Closure Status",
+   "read_only": 1,
+   "no_copy": 1,
+   "options": "No PP\nOpen\nPartially Closed\nAll Closed",
+   "default": "No PP"
+  },
+  {
+   "fieldname": "pp_closure_date",
+   "fieldtype": "Date",
+   "label": "PP Closure Date",
+   "read_only": 1,
+   "no_copy": 1
+  },
+  {
+   "fieldname": "sec_atc",
+   "fieldtype": "Section Break",
+   "label": "ATC"
+  },
+  {
+   "fieldname": "atc_status",
+   "fieldtype": "Select",
+   "label": "ATC Status",
+   "options": "Pending\nIn Review\nReady\nApproved",
+   "default": "Pending",
+   "permlevel": 6
+  },
+  {
+   "fieldname": "cb_atc1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "atc_date",
+   "fieldtype": "Date",
+   "label": "ATC Date",
+   "permlevel": 6
+  },
+  {
+   "fieldname": "tab_closure",
+   "fieldtype": "Tab Break",
+   "label": "Closure & Billing"
+  },
+  {
+   "fieldname": "sec_recon",
+   "fieldtype": "Section Break",
+   "label": "Material Reconciliation",
+   "depends_on": "eval:!doc.is_mobilization"
+  },
+  {
+   "fieldname": "reconciliation_status",
+   "fieldtype": "Select",
+   "label": "Reconciliation Status",
+   "options": "Pending\nSubmitted\nApproved\nRework",
+   "default": "Pending",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "cb_recon1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "mrs_mail_sent_date",
+   "fieldtype": "Date",
+   "label": "MRS Mail Sent Date",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "mrs_approval_date",
+   "fieldtype": "Date",
+   "label": "MRS Approval Date",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "sec_approvals",
+   "fieldtype": "Section Break",
+   "label": "Approvals",
+   "depends_on": "eval:!doc.is_mobilization"
+  },
+  {
+   "fieldname": "zonal_approval_status",
+   "fieldtype": "Select",
+   "label": "Zonal Approval Status (Pune zone head)",
+   "options": "Pending\nApproved\nRejected",
+   "default": "Pending",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "cb_appr1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "central_approval_status",
+   "fieldtype": "Select",
+   "label": "Central Approval Status (Delhi office)",
+   "options": "Pending\nApproved\nRejected",
+   "default": "Pending",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "sec_billing",
+   "fieldtype": "Section Break",
+   "label": "Billing"
+  },
+  {
+   "fieldname": "billing_ready",
+   "fieldtype": "Check",
+   "label": "Billing Ready",
+   "read_only": 1,
+   "no_copy": 1,
+   "in_standard_filter": 1,
+   "description": "All PP closed + ATC ready + reconciliation approved + zonal and central approved."
+  },
+  {
+   "fieldname": "billing_status",
+   "fieldtype": "Select",
+   "label": "Invoice / Billing Status",
+   "options": "Pending\nSubmitted\nApproved\nPaid",
+   "read_only_depends_on": "eval:!doc.billing_ready && !doc.is_mobilization",
+   "default": "Pending",
+   "permlevel": 7
+  },
+  {
+   "fieldname": "cb_bill1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "invoice_number",
+   "fieldtype": "Data",
+   "label": "Invoice Number",
+   "read_only_depends_on": "eval:!doc.billing_ready && !doc.is_mobilization",
+   "no_copy": 1,
+   "permlevel": 7
+  },
+  {
+   "fieldname": "invoice_date",
+   "fieldtype": "Date",
+   "label": "Invoice Date",
+   "read_only_depends_on": "eval:!doc.billing_ready && !doc.is_mobilization",
+   "no_copy": 1,
+   "permlevel": 7
+  },
+  {
+   "fieldname": "invoice_amount",
+   "fieldtype": "Currency",
+   "label": "Invoice Amount",
+   "read_only_depends_on": "eval:!doc.billing_ready && !doc.is_mobilization",
+   "no_copy": 1,
+   "permlevel": 7
+  },
+  {
+   "fieldname": "sec_handover",
+   "fieldtype": "Section Break",
+   "label": "Handover",
+   "depends_on": "eval:!doc.is_mobilization"
+  },
+  {
+   "fieldname": "handover_status",
+   "fieldtype": "Select",
+   "label": "Handover Status",
+   "options": "Pending\nHanded Over",
+   "default": "Pending",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "cb_ho1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "handover_date",
+   "fieldtype": "Date",
+   "label": "Handover Date",
+   "mandatory_depends_on": "eval:doc.handover_status=='Handed Over'",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "sec_recovery",
+   "fieldtype": "Section Break",
+   "label": "Recovery",
+   "collapsible": 1
+  },
+  {
+   "fieldname": "retention_amount",
+   "fieldtype": "Currency",
+   "label": "Retention Amount",
+   "description": "Defaults to Retention % of the invoice amount.",
+   "permlevel": 7
+  },
+  {
+   "fieldname": "retention_due_date",
+   "fieldtype": "Date",
+   "label": "Retention Due Date",
+   "permlevel": 7
+  },
+  {
+   "fieldname": "cb_rec1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "retention_recovery_status",
+   "fieldtype": "Select",
+   "label": "Retention Recovery Status",
+   "options": "Pending\nRecovered",
+   "default": "Pending",
+   "permlevel": 7
+  },
+  {
+   "fieldname": "retention_recovery_date",
+   "fieldtype": "Date",
+   "label": "Retention Recovery Date",
+   "permlevel": 7
+  },
+  {
+   "fieldname": "cb_rec2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "sd_bg_outstanding",
+   "fieldtype": "Currency",
+   "label": "SD / BG Outstanding (from ROW)",
+   "read_only": 1,
+   "no_copy": 1
+  },
+  {
+   "fieldname": "sd_bg_recovery_status",
+   "fieldtype": "Select",
+   "label": "SD / BG Recovery Status",
+   "options": "Pending\nPartly Recovered\nRecovered\nNA",
+   "default": "Pending",
+   "permlevel": 7
+  },
+  {
+   "fieldname": "sd_bg_recovery_date",
+   "fieldtype": "Date",
+   "label": "SD / BG Recovery Date",
+   "permlevel": 7
+  },
+  {
+   "fieldname": "sec_summary",
+   "fieldtype": "Section Break",
+   "label": "Summary"
+  },
+  {
+   "fieldname": "commitment_date",
+   "fieldtype": "Date",
+   "label": "Commitment Date",
+   "permlevel": 2
+  },
+  {
+   "fieldname": "tentative_completion_date",
+   "fieldtype": "Date",
+   "label": "Tentative Completion Date",
+   "permlevel": 2
+  },
+  {
+   "fieldname": "cb_sum1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "short_summary",
+   "fieldtype": "Small Text",
+   "label": "Short Summary",
+   "permlevel": 2
+  },
+  {
+   "fieldname": "final_remark",
+   "fieldtype": "Small Text",
+   "label": "Final Remark",
+   "permlevel": 2
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [
+  {
+   "group": "ROW",
+   "link_doctype": "ROW Application",
+   "link_fieldname": "ug_site"
+  },
+  {
+   "group": "Execution",
+   "link_doctype": "UG Daily Progress",
+   "link_fieldname": "ug_site"
+  },
+  {
+   "group": "Material",
+   "link_doctype": "UG Material Request",
+   "link_fieldname": "ug_site"
+  },
+  {
+   "group": "ATC",
+   "link_doctype": "UG Punch Point",
+   "link_fieldname": "ug_site"
+  }
+ ],
+ "modified": "2026-10-29 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Underground",
+ "name": "UG Site",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1
+  },
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "permlevel": 1
+  },
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "permlevel": 2
+  },
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "permlevel": 3
+  },
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "permlevel": 4
+  },
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "permlevel": 5
+  },
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "permlevel": 6
+  },
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "permlevel": 7
+  },
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "permlevel": 8
+  },
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "permlevel": 9
+  },
+  {
+   "role": "UG Admin",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1
+  },
+  {
+   "role": "UG Admin",
+   "read": 1,
+   "write": 1,
+   "permlevel": 1
+  },
+  {
+   "role": "UG Admin",
+   "read": 1,
+   "write": 1,
+   "permlevel": 2
+  },
+  {
+   "role": "UG Admin",
+   "read": 1,
+   "write": 1,
+   "permlevel": 3
+  },
+  {
+   "role": "UG Admin",
+   "read": 1,
+   "write": 1,
+   "permlevel": 4
+  },
+  {
+   "role": "UG Admin",
+   "read": 1,
+   "write": 1,
+   "permlevel": 5
+  },
+  {
+   "role": "UG Admin",
+   "read": 1,
+   "write": 1,
+   "permlevel": 6
+  },
+  {
+   "role": "UG Admin",
+   "read": 1,
+   "write": 1,
+   "permlevel": 7
+  },
+  {
+   "role": "UG Admin",
+   "read": 1,
+   "write": 1,
+   "permlevel": 8
+  },
+  {
+   "role": "UG Admin",
+   "read": 1,
+   "write": 1,
+   "permlevel": 9
+  },
+  {
+   "role": "UG Back Office",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1,
+   "write": 1,
+   "create": 1
+  },
+  {
+   "role": "UG Back Office",
+   "read": 1,
+   "write": 1,
+   "permlevel": 1
+  },
+  {
+   "role": "UG Back Office",
+   "read": 1,
+   "permlevel": 2
+  },
+  {
+   "role": "UG Back Office",
+   "read": 1,
+   "permlevel": 3
+  },
+  {
+   "role": "UG Back Office",
+   "read": 1,
+   "permlevel": 4
+  },
+  {
+   "role": "UG Back Office",
+   "read": 1,
+   "permlevel": 5
+  },
+  {
+   "role": "UG Back Office",
+   "read": 1,
+   "permlevel": 6
+  },
+  {
+   "role": "UG Back Office",
+   "read": 1,
+   "permlevel": 7
+  },
+  {
+   "role": "UG Back Office",
+   "read": 1,
+   "write": 1,
+   "permlevel": 8
+  },
+  {
+   "role": "UG Back Office",
+   "read": 1,
+   "permlevel": 9
+  },
+  {
+   "role": "UG Project Manager",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1,
+   "write": 1
+  },
+  {
+   "role": "UG Project Manager",
+   "read": 1,
+   "permlevel": 1
+  },
+  {
+   "role": "UG Project Manager",
+   "read": 1,
+   "write": 1,
+   "permlevel": 2
+  },
+  {
+   "role": "UG Project Manager",
+   "read": 1,
+   "write": 1,
+   "permlevel": 3
+  },
+  {
+   "role": "UG Project Manager",
+   "read": 1,
+   "permlevel": 4
+  },
+  {
+   "role": "UG Project Manager",
+   "read": 1,
+   "write": 1,
+   "permlevel": 5
+  },
+  {
+   "role": "UG Project Manager",
+   "read": 1,
+   "permlevel": 6
+  },
+  {
+   "role": "UG Project Manager",
+   "read": 1,
+   "permlevel": 7
+  },
+  {
+   "role": "UG Project Manager",
+   "read": 1,
+   "write": 1,
+   "permlevel": 8
+  },
+  {
+   "role": "UG Project Manager",
+   "read": 1,
+   "write": 1,
+   "permlevel": 9
+  },
+  {
+   "role": "UG Area Manager",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1,
+   "write": 1
+  },
+  {
+   "role": "UG Area Manager",
+   "read": 1,
+   "permlevel": 1
+  },
+  {
+   "role": "UG Area Manager",
+   "read": 1,
+   "write": 1,
+   "permlevel": 2
+  },
+  {
+   "role": "UG Area Manager",
+   "read": 1,
+   "write": 1,
+   "permlevel": 3
+  },
+  {
+   "role": "UG Area Manager",
+   "read": 1,
+   "permlevel": 4
+  },
+  {
+   "role": "UG Area Manager",
+   "read": 1,
+   "write": 1,
+   "permlevel": 5
+  },
+  {
+   "role": "UG Area Manager",
+   "read": 1,
+   "permlevel": 6
+  },
+  {
+   "role": "UG Area Manager",
+   "read": 1,
+   "permlevel": 7
+  },
+  {
+   "role": "UG Area Manager",
+   "read": 1,
+   "write": 1,
+   "permlevel": 8
+  },
+  {
+   "role": "UG Area Manager",
+   "read": 1,
+   "write": 1,
+   "permlevel": 9
+  },
+  {
+   "role": "UG Survey Team",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1,
+   "write": 1
+  },
+  {
+   "role": "UG Survey Team",
+   "read": 1,
+   "permlevel": 1
+  },
+  {
+   "role": "UG Survey Team",
+   "read": 1,
+   "permlevel": 2
+  },
+  {
+   "role": "UG Survey Team",
+   "read": 1,
+   "write": 1,
+   "permlevel": 3
+  },
+  {
+   "role": "UG Survey Team",
+   "read": 1,
+   "permlevel": 4
+  },
+  {
+   "role": "UG Survey Team",
+   "read": 1,
+   "permlevel": 5
+  },
+  {
+   "role": "UG Survey Team",
+   "read": 1,
+   "permlevel": 6
+  },
+  {
+   "role": "UG Survey Team",
+   "read": 1,
+   "permlevel": 7
+  },
+  {
+   "role": "UG Survey Team",
+   "read": 1,
+   "permlevel": 8
+  },
+  {
+   "role": "UG Survey Team",
+   "read": 1,
+   "permlevel": 9
+  },
+  {
+   "role": "UG ROW Team",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1,
+   "write": 1
+  },
+  {
+   "role": "UG ROW Team",
+   "read": 1,
+   "permlevel": 1
+  },
+  {
+   "role": "UG ROW Team",
+   "read": 1,
+   "permlevel": 2
+  },
+  {
+   "role": "UG ROW Team",
+   "read": 1,
+   "permlevel": 3
+  },
+  {
+   "role": "UG ROW Team",
+   "read": 1,
+   "write": 1,
+   "permlevel": 4
+  },
+  {
+   "role": "UG ROW Team",
+   "read": 1,
+   "permlevel": 5
+  },
+  {
+   "role": "UG ROW Team",
+   "read": 1,
+   "permlevel": 6
+  },
+  {
+   "role": "UG ROW Team",
+   "read": 1,
+   "permlevel": 7
+  },
+  {
+   "role": "UG ROW Team",
+   "read": 1,
+   "write": 1,
+   "permlevel": 8
+  },
+  {
+   "role": "UG ROW Team",
+   "read": 1,
+   "permlevel": 9
+  },
+  {
+   "role": "UG Material Team",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  },
+  {
+   "role": "UG Material Team",
+   "read": 1,
+   "permlevel": 1
+  },
+  {
+   "role": "UG Material Team",
+   "read": 1,
+   "permlevel": 2
+  },
+  {
+   "role": "UG Material Team",
+   "read": 1,
+   "permlevel": 3
+  },
+  {
+   "role": "UG Material Team",
+   "read": 1,
+   "permlevel": 4
+  },
+  {
+   "role": "UG Material Team",
+   "read": 1,
+   "permlevel": 5
+  },
+  {
+   "role": "UG Material Team",
+   "read": 1,
+   "permlevel": 6
+  },
+  {
+   "role": "UG Material Team",
+   "read": 1,
+   "permlevel": 7
+  },
+  {
+   "role": "UG Material Team",
+   "read": 1,
+   "permlevel": 8
+  },
+  {
+   "role": "UG Material Team",
+   "read": 1,
+   "permlevel": 9
+  },
+  {
+   "role": "UG Warehouse",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  },
+  {
+   "role": "UG Warehouse",
+   "read": 1,
+   "permlevel": 1
+  },
+  {
+   "role": "UG Warehouse",
+   "read": 1,
+   "permlevel": 2
+  },
+  {
+   "role": "UG Warehouse",
+   "read": 1,
+   "permlevel": 3
+  },
+  {
+   "role": "UG Warehouse",
+   "read": 1,
+   "permlevel": 4
+  },
+  {
+   "role": "UG Warehouse",
+   "read": 1,
+   "permlevel": 5
+  },
+  {
+   "role": "UG Warehouse",
+   "read": 1,
+   "permlevel": 6
+  },
+  {
+   "role": "UG Warehouse",
+   "read": 1,
+   "permlevel": 7
+  },
+  {
+   "role": "UG Warehouse",
+   "read": 1,
+   "permlevel": 8
+  },
+  {
+   "role": "UG Warehouse",
+   "read": 1,
+   "permlevel": 9
+  },
+  {
+   "role": "UG Execution Team",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1,
+   "write": 1
+  },
+  {
+   "role": "UG Execution Team",
+   "read": 1,
+   "permlevel": 1
+  },
+  {
+   "role": "UG Execution Team",
+   "read": 1,
+   "permlevel": 2
+  },
+  {
+   "role": "UG Execution Team",
+   "read": 1,
+   "permlevel": 3
+  },
+  {
+   "role": "UG Execution Team",
+   "read": 1,
+   "permlevel": 4
+  },
+  {
+   "role": "UG Execution Team",
+   "read": 1,
+   "write": 1,
+   "permlevel": 5
+  },
+  {
+   "role": "UG Execution Team",
+   "read": 1,
+   "permlevel": 6
+  },
+  {
+   "role": "UG Execution Team",
+   "read": 1,
+   "permlevel": 7
+  },
+  {
+   "role": "UG Execution Team",
+   "read": 1,
+   "permlevel": 8
+  },
+  {
+   "role": "UG Execution Team",
+   "read": 1,
+   "permlevel": 9
+  },
+  {
+   "role": "UG Splicer",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1,
+   "write": 1
+  },
+  {
+   "role": "UG Splicer",
+   "read": 1,
+   "permlevel": 1
+  },
+  {
+   "role": "UG Splicer",
+   "read": 1,
+   "permlevel": 2
+  },
+  {
+   "role": "UG Splicer",
+   "read": 1,
+   "permlevel": 3
+  },
+  {
+   "role": "UG Splicer",
+   "read": 1,
+   "permlevel": 4
+  },
+  {
+   "role": "UG Splicer",
+   "read": 1,
+   "permlevel": 5
+  },
+  {
+   "role": "UG Splicer",
+   "read": 1,
+   "permlevel": 6
+  },
+  {
+   "role": "UG Splicer",
+   "read": 1,
+   "permlevel": 7
+  },
+  {
+   "role": "UG Splicer",
+   "read": 1,
+   "permlevel": 8
+  },
+  {
+   "role": "UG Splicer",
+   "read": 1,
+   "write": 1,
+   "permlevel": 9
+  },
+  {
+   "role": "UG Vendor",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1,
+   "write": 1
+  },
+  {
+   "role": "UG Vendor",
+   "read": 1,
+   "permlevel": 1
+  },
+  {
+   "role": "UG Vendor",
+   "read": 1,
+   "permlevel": 2
+  },
+  {
+   "role": "UG Vendor",
+   "read": 1,
+   "permlevel": 3
+  },
+  {
+   "role": "UG Vendor",
+   "read": 1,
+   "permlevel": 4
+  },
+  {
+   "role": "UG Vendor",
+   "read": 1,
+   "permlevel": 5
+  },
+  {
+   "role": "UG Vendor",
+   "read": 1,
+   "permlevel": 6
+  },
+  {
+   "role": "UG Vendor",
+   "read": 1,
+   "permlevel": 7
+  },
+  {
+   "role": "UG Vendor",
+   "read": 1,
+   "permlevel": 8
+  },
+  {
+   "role": "UG Vendor",
+   "read": 1,
+   "write": 1,
+   "permlevel": 9
+  },
+  {
+   "role": "UG ATC Manager",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1,
+   "write": 1
+  },
+  {
+   "role": "UG ATC Manager",
+   "read": 1,
+   "permlevel": 1
+  },
+  {
+   "role": "UG ATC Manager",
+   "read": 1,
+   "permlevel": 2
+  },
+  {
+   "role": "UG ATC Manager",
+   "read": 1,
+   "permlevel": 3
+  },
+  {
+   "role": "UG ATC Manager",
+   "read": 1,
+   "permlevel": 4
+  },
+  {
+   "role": "UG ATC Manager",
+   "read": 1,
+   "permlevel": 5
+  },
+  {
+   "role": "UG ATC Manager",
+   "read": 1,
+   "write": 1,
+   "permlevel": 6
+  },
+  {
+   "role": "UG ATC Manager",
+   "read": 1,
+   "permlevel": 7
+  },
+  {
+   "role": "UG ATC Manager",
+   "read": 1,
+   "write": 1,
+   "permlevel": 8
+  },
+  {
+   "role": "UG ATC Manager",
+   "read": 1,
+   "permlevel": 9
+  },
+  {
+   "role": "UG Billing",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1,
+   "write": 1
+  },
+  {
+   "role": "UG Billing",
+   "read": 1,
+   "permlevel": 1
+  },
+  {
+   "role": "UG Billing",
+   "read": 1,
+   "permlevel": 2
+  },
+  {
+   "role": "UG Billing",
+   "read": 1,
+   "permlevel": 3
+  },
+  {
+   "role": "UG Billing",
+   "read": 1,
+   "permlevel": 4
+  },
+  {
+   "role": "UG Billing",
+   "read": 1,
+   "permlevel": 5
+  },
+  {
+   "role": "UG Billing",
+   "read": 1,
+   "permlevel": 6
+  },
+  {
+   "role": "UG Billing",
+   "read": 1,
+   "write": 1,
+   "permlevel": 7
+  },
+  {
+   "role": "UG Billing",
+   "read": 1,
+   "permlevel": 8
+  },
+  {
+   "role": "UG Billing",
+   "read": 1,
+   "permlevel": 9
+  },
+  {
+   "role": "UG Management",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  },
+  {
+   "role": "UG Management",
+   "read": 1,
+   "permlevel": 1
+  },
+  {
+   "role": "UG Management",
+   "read": 1,
+   "permlevel": 2
+  },
+  {
+   "role": "UG Management",
+   "read": 1,
+   "permlevel": 3
+  },
+  {
+   "role": "UG Management",
+   "read": 1,
+   "permlevel": 4
+  },
+  {
+   "role": "UG Management",
+   "read": 1,
+   "permlevel": 5
+  },
+  {
+   "role": "UG Management",
+   "read": 1,
+   "permlevel": 6
+  },
+  {
+   "role": "UG Management",
+   "read": 1,
+   "permlevel": 7
+  },
+  {
+   "role": "UG Management",
+   "read": 1,
+   "permlevel": 8
+  },
+  {
+   "role": "UG Management",
+   "read": 1,
+   "permlevel": 9
+  }
+ ],
+ "row_format": "Dynamic",
+ "search_fields": "node_id,node_name,po_number,job_id",
+ "show_title_field_in_link": 0,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "node_id",
+ "track_changes": 1
+}

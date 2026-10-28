@@ -1,0 +1,235 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:zone_name",
+ "creation": "2026-10-29 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "zone_name",
+  "sec_area",
+  "boundary_kmz",
+  "boundary",
+  "has_boundary",
+  "cb_area1",
+  "center_latitude",
+  "center_longitude",
+  "coverage_km"
+ ],
+ "fields": [
+  {
+   "fieldname": "zone_name",
+   "fieldtype": "Data",
+   "label": "Zone / Area",
+   "reqd": 1,
+   "unique": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "sec_area",
+   "fieldtype": "Section Break",
+   "label": "Area on the Map",
+   "description": "Used to give a new site its area and Area Manager from the site's latitude / longitude."
+  },
+  {
+   "fieldname": "boundary_kmz",
+   "fieldtype": "Attach",
+   "label": "Area Boundary (KMZ)",
+   "description": "KMZ / KML with the boundary of this area drawn as a polygon (Google Earth: Add Polygon)."
+  },
+  {
+   "fieldname": "boundary",
+   "fieldtype": "Long Text",
+   "label": "Boundary (GeoJSON)",
+   "read_only": 1,
+   "hidden": 1
+  },
+  {
+   "fieldname": "has_boundary",
+   "fieldtype": "Check",
+   "label": "Boundary Loaded",
+   "read_only": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "cb_area1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "center_latitude",
+   "fieldtype": "Float",
+   "label": "Centre Latitude",
+   "precision": "6",
+   "description": "Without a boundary, a site goes to the nearest area centre."
+  },
+  {
+   "fieldname": "center_longitude",
+   "fieldtype": "Float",
+   "label": "Centre Longitude",
+   "precision": "6"
+  },
+  {
+   "fieldname": "coverage_km",
+   "fieldtype": "Float",
+   "label": "Coverage Radius (km)",
+   "description": "Only sites within this distance of the centre. 0 = no limit."
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "modified": "2026-10-29 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Underground",
+ "name": "UG Zone",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1
+  },
+  {
+   "role": "UG Admin",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1
+  },
+  {
+   "role": "UG Back Office",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1,
+   "write": 1,
+   "create": 1
+  },
+  {
+   "role": "UG Project Manager",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  },
+  {
+   "role": "UG Area Manager",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  },
+  {
+   "role": "UG Survey Team",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  },
+  {
+   "role": "UG ROW Team",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  },
+  {
+   "role": "UG Material Team",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  },
+  {
+   "role": "UG Warehouse",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  },
+  {
+   "role": "UG Execution Team",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  },
+  {
+   "role": "UG Splicer",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  },
+  {
+   "role": "UG Vendor",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  },
+  {
+   "role": "UG ATC Manager",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  },
+  {
+   "role": "UG Billing",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  },
+  {
+   "role": "UG Management",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

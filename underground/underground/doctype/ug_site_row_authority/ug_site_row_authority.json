@@ -1,0 +1,72 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "creation": "2026-10-29 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "row_authority",
+  "authority_type",
+  "chainage",
+  "row_length_km",
+  "row_application"
+ ],
+ "fields": [
+  {
+   "fieldname": "row_authority",
+   "fieldtype": "Link",
+   "label": "ROW Authority",
+   "options": "ROW Authority",
+   "reqd": 1,
+   "in_list_view": 1,
+   "columns": 3
+  },
+  {
+   "fieldname": "authority_type",
+   "fieldtype": "Link",
+   "label": "Type",
+   "options": "ROW Authority Type",
+   "fetch_from": "row_authority.authority_type",
+   "read_only": 1,
+   "in_list_view": 1,
+   "columns": 2
+  },
+  {
+   "fieldname": "chainage",
+   "fieldtype": "Data",
+   "label": "Chainage",
+   "in_list_view": 1,
+   "columns": 2
+  },
+  {
+   "fieldname": "row_length_km",
+   "fieldtype": "Float",
+   "label": "ROW Length (km)",
+   "in_list_view": 1,
+   "columns": 2
+  },
+  {
+   "fieldname": "row_application",
+   "fieldtype": "Link",
+   "label": "ROW Application",
+   "options": "ROW Application",
+   "read_only": 1,
+   "in_list_view": 1,
+   "columns": 1
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-10-29 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Underground",
+ "name": "UG Site ROW Authority",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

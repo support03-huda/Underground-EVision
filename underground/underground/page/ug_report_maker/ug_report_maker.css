@@ -1,0 +1,24 @@
+.ugrm { display: flex; flex-direction: column; gap: 12px; padding-bottom: 32px; }
+.ugrm-card { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: var(--border-radius-md); padding: 12px 14px; }
+.ugrm-head { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 10px; font-size: var(--text-base); }
+.ugrm-head .ugrm-col-search { max-width: 220px; margin-left: auto; }
+.ugrm-row { display: flex; gap: 12px; flex-wrap: wrap; align-items: flex-end; }
+.ugrm-field { display: flex; flex-direction: column; gap: 4px; flex: 1 1 200px; margin: 0; font-weight: normal; }
+.ugrm-field > span { font-size: var(--text-sm); color: var(--text-muted); }
+.ugrm-check { display: flex; gap: 6px; align-items: center; margin: 0 0 8px; font-weight: normal; white-space: nowrap; }
+.ugrm-muted { color: var(--text-muted); font-size: var(--text-sm); }
+.ugrm-link { cursor: pointer; font-size: var(--text-sm); }
+.ugrm-columns { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 2px 12px; max-height: 260px; overflow-y: auto; }
+.ugrm-columns label { display: flex; gap: 6px; align-items: center; margin: 0; padding: 3px 4px; font-weight: normal; border-radius: 4px; cursor: pointer; }
+.ugrm-columns label:hover { background: var(--subtle-fg); }
+.ugrm-columns .ugrm-order-no { margin-left: auto; font-size: var(--text-xs); color: var(--text-muted); }
+.ugrm-filter-fields { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 0 12px; }
+.ugrm-preview { overflow-x: auto; max-height: 520px; overflow-y: auto; }
+.ugrm-table { width: 100%; border-collapse: collapse; font-size: var(--text-sm); }
+.ugrm-table th { position: sticky; top: 0; background: var(--subtle-fg); text-align: left; padding: 6px 8px; border-bottom: 1px solid var(--border-color); white-space: nowrap; }
+.ugrm-table td { padding: 5px 8px; border-bottom: 1px solid var(--border-color); vertical-align: top; }
+.ugrm-table td.num, .ugrm-table th.num { text-align: right; }
+.ugrm-table tr.ugrm-total td { font-weight: 600; background: var(--subtle-fg); }
+@media (max-width: 640px) {
+	.ugrm-head .ugrm-col-search { max-width: none; margin-left: 0; flex: 1 1 100%; }
+}
