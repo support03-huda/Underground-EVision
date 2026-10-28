@@ -2,6 +2,8 @@
 """Roles and starting masters for the UG Fiber ERP. Runs after install and after every
 migrate; it only adds what is missing, so admin edits to these records are kept."""
 
+import json
+
 import frappe
 
 ROLES = [
@@ -198,7 +200,25 @@ def setup_app_icon():
 		frappe.get_doc({"doctype": "Desktop Icon", "label": "Underground", "standard": 1, **values}).insert(
 			ignore_permissions=True
 		)
+	add_icon_to_saved_layouts(values)
 	frappe.cache.delete_key("desktop_icons")
+
+
+def add_icon_to_saved_layouts(values):
+	"""A user who saved a desktop layout before this app was installed sees only that saved
+	layout, so the Underground icon is appended to it."""
+	if not frappe.db.exists("DocType", "Desktop Layout"):
+		return
+	for name, layout in frappe.get_all("Desktop Layout", fields=["name", "layout"], as_list=True):
+		try:
+			icons = json.loads(layout or "[]")
+		except ValueError:
+			continue
+		if not isinstance(icons, list) or any(icon.get("label") == "Underground" for icon in icons):
+			continue
+		icons.append({"name": "Underground", "label": "Underground", "standard": 1, "idx": 0, "icon": None,
+		              "link_to": None, "icon_image": None, "restrict_removal": 0, "child_icons": [], **values})
+		frappe.db.set_value("Desktop Layout", name, "layout", json.dumps(icons), update_modified=False)
 	frappe.cache.delete_key("bootinfo")
 
 
