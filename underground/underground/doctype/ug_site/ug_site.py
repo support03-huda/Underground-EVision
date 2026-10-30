@@ -637,14 +637,16 @@ def refresh_site(site):
 @frappe.whitelist()
 def read_po_copy(file_url, site=None):
 	"""Values for the UG Site form from an attached Airtel PO PDF."""
-	from underground.underground.doctype.airtel_po.airtel_po import find_site, parse_file, site_line
+	from underground.underground.doctype.airtel_po.airtel_po import file_name, find_site, parse_file, site_line
 
 	frappe.has_permission("UG Site", "create" if not site else "write", throw=True)
 	data = parse_file(file_url)
 	lines = data["lines"]
 	node_id = next((line["node_id"] for line in lines if line.get("node_id")), None)
 	po_exists = frappe.db.exists("Airtel PO", data["po_no"])
-	work_type = guess_work_type([line for line in lines if line.get("node_id") == node_id] or lines)
+	work_type = guess_work_type(
+		[line for line in lines if line.get("node_id") == node_id] or lines, file_name(file_url)
+	)
 	need_by = [line["need_by"] for line in lines if line.get("need_by")]
 	existing_site = find_site(node_id)
 	return {

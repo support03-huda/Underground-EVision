@@ -9,8 +9,12 @@ import re
 from datetime import datetime
 
 LINE_START = re.compile(r"^\s*(\d{1,3})\s+([A-Z0-9]{6,})\s+-\s+", re.M)
+# Need-by date (older POs add the activity end date in brackets), qty, unit, then rate and amount,
+# which some POs leave blank.
 FIGURES = re.compile(
-	r"(\d{2}-[A-Z]{3}-\d{2,4})\s+([\d,]+(?:\.\d+)?)\s+([A-Za-z]+)\s+([\d,]+(?:\.\d+)?)\s+([\d,]+(?:\.\d+)?)\s*$", re.M
+	r"(\d{2}-[A-Z]{3}-\d{2,4})(?:\s*\(\d{2}-[A-Z]{3}-\d{2,4}\))?\s+([\d,]+(?:\.\d+)?)\s+([A-Za-z]+)"
+	r"(?:\s+([\d,]+(?:\.\d+)?)\s+([\d,]+(?:\.\d+)?))?\s*$",
+	re.M,
 )
 TAX = re.compile(r"\b(CGST|SGST|IGST|UTGST)_(\d+(?:\.\d+)?)%\S*\s+([\d,]+(?:\.\d+)?)")
 # Repeated on every page; dropped before the lines are read.
@@ -114,6 +118,8 @@ def guess_scope(description):
 		return "IBD"
 	if "splicing" in text:
 		return "Splicing"
+	if "row charges" in text:
+		return "ROW"
 	return "T&D"
 
 
@@ -125,22 +131,37 @@ def site_part(description):
 	return parts[-1].lower() if len(parts) > 1 else text.lower()
 
 
-def guess_work_type(lines):
+def keyword_work_type(text):
+	text = (text or "").lower()
+	if "ftth" in text:
+		return "FTTH"
+	if "fttb" in text:
+		return "FTTB"
+	if re.search(r"back\s*bone|\bnld\b", text):
+		return "BB"
+	if re.search(r"quality|qlty", text):
+		return "Quality Patch"
+	return None
+
+
+def guess_work_type(lines, file_name=None):
 	"""Work type of one node from its PO lines; the user confirms it on the form.
-	Checked against the client's MASTER sheet, where the site part decides the category."""
+	Checked against the client's MASTER sheet and PO copies: the site part of the line text decides,
+	then the PO file name (the team names files e.g. '..=JohnDeere=QLTY=800MTS..', which the PO text
+	does not say)."""
 	scopes = {line.get("scope") for line in lines}
 	if scopes == {"Mobilization"}:
 		return "MO"
-	lines = [line for line in lines if line.get("scope") != "Mobilization"]
+	lines = [line for line in lines if line.get("scope") not in ("Mobilization", "ROW")]
 	site = " ".join(site_part(line.get("description")) for line in lines)
-	if "ftth" in site:
-		return "FTTH"
-	if "fttb" in site or "Splicing" in scopes:
+	work_type = keyword_work_type(site)
+	if work_type:
+		return work_type
+	if "Splicing" in scopes:
 		return "FTTB"
-	if re.search(r"back\s*bone|\bnld\b", site):
-		return "BB"
-	if "quality" in site:
-		return "Quality Patch"
+	work_type = keyword_work_type(re.sub(r"mob(ili[sz]ation)?", "", file_name or "", flags=re.I))
+	if work_type and lines:
+		return work_type
 	if any(guess_node_id(line.get("description") or "") for line in lines):
 		return "IBD" if scopes == {"IBD"} else "LM"
 	# A CWIP route with no node named is a patch on an existing route.

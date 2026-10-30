@@ -106,6 +106,13 @@ def previous_service_po(sites, exclude=None):
 	return frappe.get_all("Airtel PO", filters={"name": ("in", rows)}, order_by="po_date desc", limit=1, pluck="name")[0]
 
 
+def file_name(file_url):
+	"""Name the PO file was uploaded under; the team's names carry hints such as 'QLTY' or 'FTTB'."""
+	from urllib.parse import unquote
+
+	return unquote((file_url or "").rsplit("/", 1)[-1])
+
+
 def parse_file(file_url):
 	"""Parsed contents of an attached PO PDF (see underground.po_reader)."""
 	file_doc = frappe.get_doc("File", {"file_url": file_url})
@@ -135,8 +142,10 @@ def read_po_file(file_url):
 		row["ug_site"] = find_site(line.get("node_id"))
 		result["lines"].append(row)
 
-	work_types = {guess_work_type([l for l in data["lines"] if l.get("node_id") == node]) for node in
-	              {l.get("node_id") for l in data["lines"]}} - {None, "MO"}
+	nodes = {l.get("node_id") for l in data["lines"]}
+	work_types = {
+		guess_work_type([l for l in data["lines"] if l.get("node_id") == node], file_name(file_url)) for node in nodes
+	} - {None, "MO"}
 	if len(work_types) == 1 and frappe.db.exists("UG Work Type", next(iter(work_types))):
 		result["work_type"] = next(iter(work_types))
 
@@ -224,7 +233,7 @@ def site_line(airtel_po, po_type, line):
 def node_work_type(po, node_id):
 	"""Work type read from this node's lines on the PO, if it is a known UG Work Type."""
 	lines = [l.as_dict() for l in po.lines if l.node_id == node_id]
-	work_type = guess_work_type(lines)
+	work_type = guess_work_type(lines, file_name(po.po_file))
 	return work_type if work_type and frappe.db.exists("UG Work Type", work_type) else None
 
 
