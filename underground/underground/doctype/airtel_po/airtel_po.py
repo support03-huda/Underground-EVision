@@ -230,6 +230,7 @@ def create_site(po, line):
 			"po_number": po.po_number or po.po_no,
 			"po_receipt_date": po.po_receipt_date,
 			"po_start_date": po.po_date,
+			"nfa_no": po.internal_ref,
 			"work_type": work_type,
 			"node_id": line.node_id,
 			"zone": po.zone,

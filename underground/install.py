@@ -30,6 +30,7 @@ WORK_TYPES = [
 	("Quality Patch", "Replaces a damaged stretch between two points A and B", 1, 0, "T&D"),
 	("IBD", "In-Building: fiber run inside the building or tower", 0, 0, "IBD"),
 	("FTTB", "Fiber to the Building: fiber taken inside the customer's building / office", 0, 0, "FTTB"),
+	("FTTH", "Fiber to the Home: fiber taken up to the customer's home", 0, 0, "FTTB"),
 	("MO", "Mobilization: compensation PO mapped against a node", 0, 1, "None"),
 ]
 

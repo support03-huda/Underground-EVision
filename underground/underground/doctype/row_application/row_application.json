@@ -2,7 +2,7 @@
  "actions": [],
  "allow_rename": 0,
  "autoname": "naming_series:",
- "creation": "2026-10-29 00:00:00.000000",
+ "creation": "2026-10-30 00:00:00.000000",
  "description": "One record per authority on a site's route; together they make the ROW Tracker.",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -31,12 +31,14 @@
   "sec_application",
   "application_mode",
   "application_no",
+  "ticket_no",
   "cb_app1",
   "application_date",
   "application_status",
   "sec_demand",
   "demand_note_no",
   "demand_note_date",
+  "dn_sent_for_processing_date",
   "cb_dn1",
   "demand_note_amount",
   "demand_note_status",
@@ -48,10 +50,19 @@
   "payment_mode",
   "payment_reference",
   "payment_date",
+  "cb_pay2",
+  "beneficiary_name",
+  "beneficiary_bank",
+  "beneficiary_account_no",
+  "beneficiary_ifsc",
   "sec_sd",
   "sd_required",
   "sd_amount",
   "sd_deposit_date",
+  "sd_payment_mode",
+  "sd_beneficiary_name",
+  "sd_account_no",
+  "sd_ifsc",
   "cb_sd1",
   "sd_refund_applied_date",
   "sd_refund_received_date",
@@ -62,10 +73,15 @@
   "bg_no",
   "bg_bank",
   "bg_amount",
+  "bg_received_date",
+  "bg_beneficiary_name",
+  "bg_account_no",
+  "bg_ifsc",
   "cb_bg1",
   "bg_start_date",
   "bg_end_date",
   "bg_released_date",
+  "bg_claim_date",
   "bg_status",
   "sec_bg_renewals",
   "bg_renewals",
@@ -261,6 +277,11 @@
    "in_global_search": 1
   },
   {
+   "fieldname": "ticket_no",
+   "fieldtype": "Data",
+   "label": "Ticket Number"
+  },
+  {
    "fieldname": "cb_app1",
    "fieldtype": "Column Break"
   },
@@ -292,6 +313,11 @@
    "fieldname": "demand_note_date",
    "fieldtype": "Date",
    "label": "Demand Note Date"
+  },
+  {
+   "fieldname": "dn_sent_for_processing_date",
+   "fieldtype": "Date",
+   "label": "DN Sent for Processing"
   },
   {
    "fieldname": "cb_dn1",
@@ -356,6 +382,34 @@
    "depends_on": "payment_required"
   },
   {
+   "fieldname": "cb_pay2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "beneficiary_name",
+   "fieldtype": "Data",
+   "label": "Beneficiary Name",
+   "depends_on": "payment_required"
+  },
+  {
+   "fieldname": "beneficiary_bank",
+   "fieldtype": "Data",
+   "label": "Beneficiary Bank",
+   "depends_on": "payment_required"
+  },
+  {
+   "fieldname": "beneficiary_account_no",
+   "fieldtype": "Data",
+   "label": "Account Number",
+   "depends_on": "payment_required"
+  },
+  {
+   "fieldname": "beneficiary_ifsc",
+   "fieldtype": "Data",
+   "label": "IFSC Code",
+   "depends_on": "payment_required"
+  },
+  {
    "fieldname": "sec_sd",
    "fieldtype": "Section Break",
    "label": "Security Deposit"
@@ -375,6 +429,31 @@
    "fieldname": "sd_deposit_date",
    "fieldtype": "Date",
    "label": "Date Deposited",
+   "depends_on": "sd_required"
+  },
+  {
+   "fieldname": "sd_payment_mode",
+   "fieldtype": "Link",
+   "label": "SD Payment Mode",
+   "options": "UG Payment Mode",
+   "depends_on": "sd_required"
+  },
+  {
+   "fieldname": "sd_beneficiary_name",
+   "fieldtype": "Data",
+   "label": "SD Beneficiary Name",
+   "depends_on": "sd_required"
+  },
+  {
+   "fieldname": "sd_account_no",
+   "fieldtype": "Data",
+   "label": "SD Account Number",
+   "depends_on": "sd_required"
+  },
+  {
+   "fieldname": "sd_ifsc",
+   "fieldtype": "Data",
+   "label": "SD IFSC Code",
    "depends_on": "sd_required"
   },
   {
@@ -437,6 +516,30 @@
    "depends_on": "bg_required"
   },
   {
+   "fieldname": "bg_received_date",
+   "fieldtype": "Date",
+   "label": "BG Received Date",
+   "depends_on": "bg_required"
+  },
+  {
+   "fieldname": "bg_beneficiary_name",
+   "fieldtype": "Data",
+   "label": "BG Beneficiary Name",
+   "depends_on": "bg_required"
+  },
+  {
+   "fieldname": "bg_account_no",
+   "fieldtype": "Data",
+   "label": "BG Account Number",
+   "depends_on": "bg_required"
+  },
+  {
+   "fieldname": "bg_ifsc",
+   "fieldtype": "Data",
+   "label": "BG IFSC Code",
+   "depends_on": "bg_required"
+  },
+  {
    "fieldname": "cb_bg1",
    "fieldtype": "Column Break"
   },
@@ -457,6 +560,12 @@
    "fieldname": "bg_released_date",
    "fieldtype": "Date",
    "label": "BG Released Date",
+   "depends_on": "bg_required"
+  },
+  {
+   "fieldname": "bg_claim_date",
+   "fieldtype": "Date",
+   "label": "BG Claim Date",
    "depends_on": "bg_required"
   },
   {
@@ -570,7 +679,7 @@
  ],
  "index_web_pages_for_search": 0,
  "links": [],
- "modified": "2026-10-29 00:00:00.000000",
+ "modified": "2026-10-30 00:00:00.000000",
  "modified_by": "Administrator",
  "module": "Underground",
  "name": "ROW Application",
