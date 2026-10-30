@@ -65,7 +65,7 @@ function read_po_file(frm) {
 		}
 		[
 			"po_number", "po_no", "po_type", "po_date", "rev_no", "rev_date", "internal_ref",
-			"buyer_name", "old_po_ref", "total_value", "payment_terms", "replaces_po",
+			"buyer_name", "old_po_ref", "total_value", "payment_terms", "replaces_po", "work_type",
 		].forEach((field) => {
 			if (po[field] !== undefined) frm.doc[field] = po[field];
 		});

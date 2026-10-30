@@ -8,7 +8,7 @@ from frappe import _
 from frappe.model.document import Document
 from frappe.utils import flt
 
-from underground.po_reader import parse_po_pdf
+from underground.po_reader import guess_work_type, parse_po_pdf
 
 # Header fields copied from the parsed PDF onto the form.
 HEADER_FIELDS = (
@@ -135,6 +135,11 @@ def read_po_file(file_url):
 		row["ug_site"] = find_site(line.get("node_id"))
 		result["lines"].append(row)
 
+	work_types = {guess_work_type([l for l in data["lines"] if l.get("node_id") == node]) for node in
+	              {l.get("node_id") for l in data["lines"]}} - {None, "MO"}
+	if len(work_types) == 1 and frappe.db.exists("UG Work Type", next(iter(work_types))):
+		result["work_type"] = next(iter(work_types))
+
 	sites = {row["ug_site"] for row in result["lines"] if row["ug_site"]}
 	if result["old_po_ref"] and frappe.db.exists("Airtel PO", result["old_po_ref"]):
 		result["replaces_po"] = result["old_po_ref"]
@@ -216,8 +221,15 @@ def site_line(airtel_po, po_type, line):
 	}
 
 
+def node_work_type(po, node_id):
+	"""Work type read from this node's lines on the PO, if it is a known UG Work Type."""
+	lines = [l.as_dict() for l in po.lines if l.node_id == node_id]
+	work_type = guess_work_type(lines)
+	return work_type if work_type and frappe.db.exists("UG Work Type", work_type) else None
+
+
 def create_site(po, line):
-	work_type = "MO" if line.scope == "Mobilization" else po.work_type
+	work_type = "MO" if line.scope == "Mobilization" else node_work_type(po, line.node_id) or po.work_type
 	if not work_type:
 		frappe.throw(
 			_("Node {0} has no UG Site yet. Set the Work Type under Defaults for New Sites so it can be created.").format(

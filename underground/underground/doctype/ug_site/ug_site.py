@@ -14,6 +14,7 @@ from frappe.model.document import Document
 from frappe.query_builder.functions import Count, Sum
 from frappe.utils import cint, date_diff, flt, today
 
+from underground.po_reader import guess_work_type
 from underground.utils import get_setting, get_stage_sla
 
 STAGES = [
@@ -633,32 +634,6 @@ def refresh_site(site):
 	doc.notify_update()
 
 
-def guess_work_type(lines):
-	"""Best guess from the PO lines; the user confirms it on the form."""
-	scopes = {line.get("scope") for line in lines}
-	text = " ".join(line.get("description") or "" for line in lines).lower()
-	if scopes == {"Mobilization"}:
-		return "MO"
-	if scopes == {"IBD"}:
-		return "IBD"
-	if "back bone" in text or "backbone" in text:
-		return "BB"
-	if "quality" in text.split("connectivity")[-1]:
-		return "Quality Patch"
-	if "end to end execution" in text or "IBD" in scopes:
-		return "LM"
-	# The inter-city trenching rate card (e.g. ICW000004) is used for both backbone and last mile:
-	# up to 1 km (the LM rate card's own "Length <=1Km" limit) it is a last mile, longer a backbone.
-	if "inter city" in re.sub(r"[\s-]+", " ", text):
-		length = sum(
-			flt(line.get("qty"))
-			for line in lines
-			if line.get("scope") == "T&D" and (line.get("uom") or "").lower().startswith("met")
-		)
-		return "LM" if 0 < length <= 1000 else "BB"
-	return None
-
-
 @frappe.whitelist()
 def read_po_copy(file_url, site=None):
 	"""Values for the UG Site form from an attached Airtel PO PDF."""
@@ -669,7 +644,7 @@ def read_po_copy(file_url, site=None):
 	lines = data["lines"]
 	node_id = next((line["node_id"] for line in lines if line.get("node_id")), None)
 	po_exists = frappe.db.exists("Airtel PO", data["po_no"])
-	work_type = guess_work_type(lines)
+	work_type = guess_work_type([line for line in lines if line.get("node_id") == node_id] or lines)
 	need_by = [line["need_by"] for line in lines if line.get("need_by")]
 	existing_site = find_site(node_id)
 	return {

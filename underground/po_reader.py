@@ -112,7 +112,42 @@ def guess_scope(description):
 		return "Mobilization"
 	if "in building" in text or "in-building" in text:
 		return "IBD"
+	if "splicing" in text:
+		return "Splicing"
 	return "T&D"
+
+
+def site_part(description):
+	"""The text after Airtel's rate-card wording, which names the site, e.g. 'FTTB John Deere ...'.
+	The rate card itself lists 'node/LM/Quality/FTTB Connectivity' on every line, so it says nothing."""
+	text = re.split(r"HSN Number", description or "")[0]
+	parts = re.split(r"(?i)connectivity|per fiber", text)
+	return parts[-1].lower() if len(parts) > 1 else text.lower()
+
+
+def guess_work_type(lines):
+	"""Work type of one node from its PO lines; the user confirms it on the form.
+	Checked against the client's MASTER sheet, where the site part decides the category."""
+	scopes = {line.get("scope") for line in lines}
+	if scopes == {"Mobilization"}:
+		return "MO"
+	lines = [line for line in lines if line.get("scope") != "Mobilization"]
+	site = " ".join(site_part(line.get("description")) for line in lines)
+	if "ftth" in site:
+		return "FTTH"
+	if "fttb" in site or "Splicing" in scopes:
+		return "FTTB"
+	if re.search(r"back\s*bone|\bnld\b", site):
+		return "BB"
+	if "quality" in site:
+		return "Quality Patch"
+	if any(guess_node_id(line.get("description") or "") for line in lines):
+		return "IBD" if scopes == {"IBD"} else "LM"
+	# A CWIP route with no node named is a patch on an existing route.
+	if re.search(r"cwip-\d+", site):
+		return "Quality Patch"
+	# No Airtel node named: the line names a customer building (e.g. 'Joyville Hadapsar').
+	return "FTTB" if lines else None
 
 
 def guess_po_type(text):
