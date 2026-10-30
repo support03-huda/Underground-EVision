@@ -209,12 +209,12 @@ function fill_from_po(frm) {
 function fill_from_kmz(frm) {
 	frappe.call({
 		method: "underground.underground.doctype.ug_site.ug_site.read_kmz",
-		args: { file_url: frm.doc.kmz_file, site: frm.is_new() ? null : frm.doc.name },
+		args: { file_url: frm.doc.kmz_file, site: frm.is_new() ? null : frm.doc.name, node_id: frm.doc.node_id },
 		freeze: true,
 		freeze_message: __("Reading KMZ..."),
 	}).then(({ message: kmz }) => {
 		if (!kmz) return;
-		const notes = [];
+		const notes = [...(kmz.warnings || [])];
 		if (kmz.node_id && frm.doc.node_id && kmz.node_id !== frm.doc.node_id) {
 			notes.push(__("This KMZ is for node {0}, but the site is node {1}. Check the file.", [kmz.node_id, frm.doc.node_id]));
 		}

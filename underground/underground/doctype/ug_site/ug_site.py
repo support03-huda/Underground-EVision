@@ -77,7 +77,7 @@ class UGSite(Document):
 		if not self.kmz_file.lower().endswith((".kmz", ".kml")):
 			return
 		try:
-			data = parse_kmz_file(self.kmz_file)
+			data = parse_kmz_file(self.kmz_file, self.node_id)
 		except frappe.ValidationError as e:
 			frappe.msgprint(str(e), title=_("KMZ not read"), indicator="orange")
 			return
@@ -92,7 +92,7 @@ class UGSite(Document):
 			"kmz_received": 1,
 			"kmz_received_date": self.kmz_received_date or today(),
 		})
-		notes = []
+		notes = list(data["warnings"])
 		if data["node_id"] and not self.node_id:
 			self.node_id = data["node_id"]
 		elif data["node_id"] and data["node_id"] != (self.node_id or "").strip():
@@ -992,13 +992,13 @@ def pick_area_manager(zone):
 
 
 @frappe.whitelist()
-def read_kmz(file_url, site=None):
+def read_kmz(file_url, site=None, node_id=None):
 	"""Values for a new (unsaved) UG Site form from an attached KMZ / KML."""
 	frappe.has_permission("UG Site", "create" if not site else "write", throw=True)
-	return parse_kmz_file(file_url)
+	return parse_kmz_file(file_url, node_id)
 
 
-def parse_kmz_file(file_url):
+def parse_kmz_file(file_url, node_id=None):
 	from underground.kmz_reader import parse_kmz
 
 	file_doc = frappe.get_doc("File", {"file_url": file_url})
@@ -1006,13 +1006,33 @@ def parse_kmz_file(file_url):
 	if not file_name.lower().endswith((".kmz", ".kml")):
 		frappe.throw(_("Attach the KMZ (or KML) file."))
 	try:
-		data = parse_kmz(file_doc.get_content(), file_name)
+		data = parse_kmz(file_doc.get_content(), file_name, node_id)
 	except Exception:
 		frappe.log_error(title="UG Site: could not read KMZ")
 		frappe.throw(_("Could not read this KMZ. Is it the KMZ from Airtel, opened fine in Google Earth?"))
 	if not data["latitude"] and not data["proposed_length"]:
 		frappe.throw(_("No site point or route was found in this KMZ. Enter the KMZ details by hand."))
+	data["warnings"] = kmz_warnings(data)
 	return data
+
+
+def kmz_warnings(data):
+	"""Things in the KMZ worth a second look before the lengths are trusted."""
+	warnings = []
+	if data["nodes"] and data["node_id"] not in data["nodes"]:
+		warnings.append(_("This KMZ shows node {0}, not {1}. Check the file.").format(
+			", ".join(data["nodes"]), data["node_id"]))
+	elif len(data["nodes"]) > 1:
+		warnings.append(_("This KMZ maps {0} nodes; only the route to node {1} was read.").format(
+			len(data["nodes"]), data["node_id"]))
+	if data["route_count"] > 1:
+		warnings.append(_("{0} routes were added together ({1} m). Check they are not alternatives.").format(
+			data["route_count"], data["proposed_length"]))
+	if not data["proposed_length"]:
+		warnings.append(_("No route is drawn in this KMZ: enter the route length by hand."))
+	if not data["tapping_point"]:
+		warnings.append(_("No tapping point was found in this KMZ."))
+	return warnings
 
 
 @frappe.whitelist()

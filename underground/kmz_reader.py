@@ -17,10 +17,18 @@ import xml.etree.ElementTree as ET
 
 MAX_KML_SIZE = 20 * 1024 * 1024
 NODE_RE = re.compile(r"\b([A-Z]{2,4}\d{3,5})\b")
-TAPPING_RE = re.compile(r"joint|chamber|tap|splice|manhole|\bjc\b|\btp\b|\bhh\b", re.I)
+# Points on Airtel's side of the route: chambers, handholes, cut points, POPs and network elements
+# such as 'PUN/LGM/901'.
+TAPPING_RE = re.compile(
+	r"joint|chamber|tap|splice|manhole|handhole|closure|cut\s*point|\bpop\b|\brfs\b|peyto|\bjc\b|\btp\b|\bhh\d*\b"
+	r"|\b[a-z]{3}/[a-z]{3}/\d{3}\b",
+	re.I,
+)
 
 
-def parse_kmz(content, file_name=""):
+def parse_kmz(content, file_name="", node_id=None):
+	"""Site, tapping point and route of one node. `node_id` (the site's own node, when known) picks
+	that node out of a route KMZ that maps several nodes."""
 	kml = read_kml(content, file_name)
 	points, lines = [], []
 	for placemark in ET.fromstring(kml).iter():
@@ -37,18 +45,33 @@ def parse_kmz(content, file_name=""):
 			elif kind == "LineString" and len(coords) > 1:
 				lines.append({"name": name, "coords": coords, "length": line_length(coords)})
 
-	node_id = guess_node_id(points, file_name)
-	site = pick_site_point(points, node_id)
-	tapping = next((p for p in points if p is not site and TAPPING_RE.search(p["name"] or "")), None)
-	if not tapping:
-		tapping = next((p for p in points if p is not site), None)
+	nodes = node_ids(points)
+	node_id = (node_id or "").strip().upper() or guess_node_id(points, file_name)
 	existing = [line for line in lines if re.search(r"exist", line["name"] or "", re.I)]
-	proposed = [line for line in lines if re.search(r"propos", line["name"] or "", re.I)]
-	if not proposed:
-		proposed = [line for line in lines if line not in existing]
+	site = pick_site_point(points, node_id)
+	candidates = [line for line in lines if line not in existing]
+	own = [line for line in candidates if node_id and node_id in (line["name"] or "").upper()]
+	if len(nodes) > 1 and not own and site and candidates:
+		# Route KMZ whose spur to this node is not named after it: the line that ends at the site.
+		own = [min(candidates, key=lambda line: min(end_distance(site, line)))]
+	if len(nodes) > 1 and own:
+		proposed = own
+	else:
+		proposed = [line for line in lines if re.search(r"propos", line["name"] or "", re.I)] or candidates
+
+	if not site and proposed:
+		# Only a route drawn: it runs from the tapping point to the site.
+		coords = max(proposed, key=lambda line: line["length"])["coords"]
+		site = {"name": "Route end", "lon": coords[-1][0], "lat": coords[-1][1]}
+		points.append(site)
+		points.append({"name": "Route start (tapping)", "lon": coords[0][0], "lat": coords[0][1]})
+	others = [p for p in points if p is not site]
+	taps = [p for p in others if TAPPING_RE.search(p["name"] or "")] or others
+	tapping = min(taps, key=lambda p: distance(site, p)) if site and taps else None
 
 	return {
 		"node_id": node_id,
+		"nodes": nodes,
 		"latitude": site and round(site["lat"], 6),
 		"longitude": site and round(site["lon"], 6),
 		"tapping_point": tapping and f"{tapping['name']} ({tapping['lat']:.6f}, {tapping['lon']:.6f})",
@@ -143,20 +166,37 @@ def distance(a, b):
 	return haversine(a["lon"], a["lat"], b["lon"], b["lat"])
 
 
-def guess_node_id(points, file_name):
+def end_distance(point, line):
+	"""Distances from a point to the two ends of a line."""
+	(x1, y1), (x2, y2) = line["coords"][0], line["coords"][-1]
+	return haversine(point["lon"], point["lat"], x1, y1), haversine(point["lon"], point["lat"], x2, y2)
+
+
+def node_ids(points):
+	"""Node IDs of the site points, in file order (a route KMZ maps several)."""
+	found = []
 	for point in points:
 		match = NODE_RE.search((point["name"] or "").upper())
-		if match and not TAPPING_RE.search(point["name"]):
-			return match.group(1)
+		if match and not TAPPING_RE.search(point["name"]) and match.group(1) not in found:
+			found.append(match.group(1))
+	return found
+
+
+def guess_node_id(points, file_name):
+	"""The node the file is named after when it is in the file too, else the first node point."""
+	nodes = node_ids(points)
 	match = NODE_RE.search(re.split(r"[\\/]", file_name)[-1].upper())
-	return match.group(1) if match else None
+	if match and (match.group(1) in nodes or not nodes):
+		return match.group(1)
+	return nodes[0] if nodes else None
 
 
 def pick_site_point(points, node_id):
 	if node_id:
-		for point in points:
-			if node_id in (point["name"] or "").upper():
-				return point
+		named = [p for p in points if node_id in (p["name"] or "").upper()]
+		site = next((p for p in named if not TAPPING_RE.search(p["name"] or "")), named[0] if named else None)
+		if site:
+			return site
 	return next((p for p in points if not TAPPING_RE.search(p["name"] or "")), points[0] if points else None)
 
 
